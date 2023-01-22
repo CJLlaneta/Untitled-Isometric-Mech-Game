@@ -12,7 +12,7 @@ public class TwinStickMovement : MonoBehaviour
     [SerializeField] private float _controllerDeadZone= 0.1f;
 
     [SerializeField] PlayerAim _playerAim;
-    [SerializeField] BodyControllerPlayer _bodyController;
+    [SerializeField] BodyController _bodyController;
 
     private static bool _isGamePad;
 

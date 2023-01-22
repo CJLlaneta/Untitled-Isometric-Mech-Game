@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyControllerPlayer : MonoBehaviour
+public class BodyController : MonoBehaviour
 {
     [SerializeField] GameObject _upperBody;
     [SerializeField] GameObject _chasis;
@@ -11,7 +11,6 @@ public class BodyControllerPlayer : MonoBehaviour
 
     [SerializeField] float _upperBodyRotationSpeed = 5;
     [SerializeField] float _chasisRotationSpeed = 5;
-
     public float MovementSpeed
     {   
         get { return _movementSpeed; } 
