@@ -15,5 +15,5 @@ MonoBehaviour:
   _weaponName: Test Cannon
   _clipCapacity: 5
   _defualAmmoCapacity: 25
-  _rateOfFire: 1
+  _rateOfFire: 0.2
   _projectileID: Bullet_Cal_Large
