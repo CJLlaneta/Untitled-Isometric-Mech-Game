@@ -12,6 +12,7 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     private float _rateOfFire;
     private string _projectileID;
     private bool _allowedToFire =true;
+    private GameObject _owner;
 
     void Start()
     {
@@ -34,10 +35,14 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     {
 
     }
-    
+    public void SetTheOwner(GameObject owner)
+    {
+        _owner = owner;
+    }
     private void SpawnProjectile()
     {
-        ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position,_weaponProperties.transform.rotation);
+       GameObject _proj = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position,_weaponProperties.transform.rotation);
+       _proj.GetComponent<ProjectileCollisionDetector>().SetTheOwner(_owner);
     }
     IEnumerator FireCooldown()
     {

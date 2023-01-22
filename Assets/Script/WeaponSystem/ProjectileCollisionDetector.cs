@@ -6,17 +6,28 @@ using System.Linq;
 public class ProjectileCollisionDetector : MonoBehaviour
 {
     [SerializeField] TagCollision _tagCollisions;
+    [SerializeField] GameObject _ownerOfProjectile;
+
+
+    public void SetTheOwner(GameObject owner)
+    {
+        _ownerOfProjectile = owner;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (IsWithinTag(other.transform.tag))
+        if (other.gameObject != _ownerOfProjectile)
         {
-            //Do Something
-            gameObject.SetActive(false);
-        }
-        else 
-        {
-            //By Default Destroy this object
-            gameObject.SetActive(false);
+            if (IsWithinTag(other.transform.tag))
+            {
+                //Do Something
+                gameObject.SetActive(false);
+            }
+            else 
+            {
+                //By Default Destroy this object
+                gameObject.SetActive(false);
+            }
         }
     }
 

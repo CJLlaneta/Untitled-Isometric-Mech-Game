@@ -6,5 +6,5 @@ internal interface IWeapon
 {
     void OnReload();
     void OnShoot();
-
+    void SetTheOwner(GameObject owner);
 }
