@@ -21,7 +21,7 @@ public class ProjectileCollisionDetector : MonoBehaviour
             if (IsWithinTag(other.transform.tag))
             {
                 //Do Something
-                gameObject.SetActive(false);
+                ApplyConditions();
             }
             else 
             {
@@ -30,7 +30,10 @@ public class ProjectileCollisionDetector : MonoBehaviour
             }
         }
     }
-
+    private void ApplyConditions()
+    {
+        gameObject.SetActive(false);
+    }
     private bool IsWithinTag(string tag)
     {
         bool _ret =false;
