@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2f9b6831806e04da3b88c4d7adbfde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedProjectile: 70
+  _speedProjectile: 100
 --- !u!114 &-5244633245145867022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tagCollisions: {fileID: 11400000, guid: 4a94ac146df08a74c8885e7b0f0b1e46, type: 2}
+  _ownerOfProjectile: {fileID: 0}
 --- !u!65 &4174056733478899262
 BoxCollider:
   m_ObjectHideFlags: 0

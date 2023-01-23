@@ -7,7 +7,6 @@ public class WeaponHandler : MonoBehaviour,IWeapon
   
     [SerializeField] WeaponProperties _weaponProperties;
     public WeaponLocation weaponLocation = WeaponLocation.right;
-    [SerializeField] float _shortestFiringDistance = 12;
     [SerializeField] Animator _animator;
     private int _clipCapacity;
     private int _defualAmmoCapacity;
@@ -55,16 +54,12 @@ public class WeaponHandler : MonoBehaviour,IWeapon
         PlayShootAnimation();
         _currentProjectile = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
         _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetTheOwner(_owner);
-    
-        if (Vector3.Distance(_weaponProperties.muzzlePoint.position,TargetPoint) >= _shortestFiringDistance) 
-        {
-            _currentProjectile.transform.LookAt(TargetPoint);
-            _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
-            _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
-            _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
-            _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
-        }
-
+        _currentProjectile.transform.LookAt(TargetPoint);
+        _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
+        _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
+        _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
+        _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
+  
     }
     IEnumerator FireCooldown()
     {
