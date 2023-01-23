@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
-    [SerializeField] List<WeaponHandler> _weaponsHold;
+
+    [SerializeField] WeaponSystem _weaponSystem;
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] GameObject _owner;
     [SerializeField] PlayerAim _playerAim;
     private InputControls _playerControls;
-    private List<IWeapon> _weaponsRightPosition = new List<IWeapon>();
-    private List<IWeapon> _weaponsLeftPosition  = new List<IWeapon>();
+
     void Awake()
     {
         _playerControls = new InputControls();
@@ -21,21 +21,7 @@ public class WeaponController : MonoBehaviour
     }
     void InitializeProperties()
     {
-        _weaponsRightPosition.Clear();
-        _weaponsLeftPosition.Clear();
-        foreach (WeaponHandler wh in _weaponsHold)
-        {
-            wh.SetTheOwner(_owner);
-            if (wh.weaponLocation == WeaponHandler.WeaponLocation.right)
-            {
-                _weaponsRightPosition.Add(wh);
-            }
-            else if (wh.weaponLocation == WeaponHandler.WeaponLocation.left)
-            {
-                _weaponsLeftPosition.Add(wh);
-            }
-        }
-
+        _weaponSystem.InitializeProperties(_owner);
     }
     void OnEnable()
     {
@@ -50,24 +36,16 @@ public class WeaponController : MonoBehaviour
     {
         HandleInput();
     }
-    private void FireWeapons(List<IWeapon> weapon)
-    {
-        foreach(IWeapon w in weapon)
-        {
-            w.OnShoot(_playerAim.lastPoint);
-        }
-    }
+
     private void HandleInput()
     {
         if (_playerControls.Player.FiringRight.IsPressed())
         {
-           //Debug.Log("Firing Right weapon");
-           FireWeapons(_weaponsRightPosition);
+            _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint);
         }
         if (_playerControls.Player.FiringLeft.IsPressed())
         {
-            //Debug.Log("Firing Left weapon");
-            FireWeapons(_weaponsLeftPosition);
+            _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.left, _playerAim.lastPoint);
         }
     }
 }

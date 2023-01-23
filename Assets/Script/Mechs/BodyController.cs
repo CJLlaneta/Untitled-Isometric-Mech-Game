@@ -9,21 +9,24 @@ public class BodyController : MonoBehaviour
     [SerializeField] Animator _animator;
 
     [SerializeField] float _movementSpeed = 10;
+    [SerializeField] float _movementSpeed_rotation = 5;
 
     [SerializeField] float _upperBodyRotationSpeed = 5;
     [SerializeField] float _chasisRotationSpeed = 5;
 
+    private float _currentMovementSpeed = 0;
     private void Start()
     {
         Initialized();
     }
     private void Initialized()
     {
+        _currentMovementSpeed = _movementSpeed;
         IsMoving(false);
     }
     public float MovementSpeed
     {   
-        get { return _movementSpeed; } 
+        get { return _currentMovementSpeed; } 
     }
     public void UpperRotation(Quaternion newRotation)
     {
@@ -39,6 +42,14 @@ public class BodyController : MonoBehaviour
     {
         Quaternion _finalRotation = Quaternion.RotateTowards(_chasis.transform.rotation,newRotation,_chasisRotationSpeed * Time.deltaTime);
         _chasis.transform.rotation = _finalRotation;
+        if (_chasis.transform.rotation != newRotation) 
+        {
+            _currentMovementSpeed = _movementSpeed_rotation;
+        }
+        else if (_chasis.transform.rotation == newRotation)
+        {
+            _currentMovementSpeed = _movementSpeed;
+        }
     }
 
     
