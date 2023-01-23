@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _upperBody: {fileID: 3769992007252868340}
   _chasis: {fileID: 3769992007299977226}
+  _animator: {fileID: 3769992007309337546}
   _movementSpeed: 5
   _upperBodyRotationSpeed: 60
   _chasisRotationSpeed: 70
@@ -108,6 +109,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b257b50b0d0618f4fb5a22c6bc3e95a0, type: 3}
+--- !u!95 &3769992006883986795 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: b257b50b0d0618f4fb5a22c6bc3e95a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3769992006893385739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5311703233147839590 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9072297159837293677, guid: b257b50b0d0618f4fb5a22c6bc3e95a0,
@@ -141,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a67c7e14640506f48ab048664441bf71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0058768
+      value: 2.527
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a67c7e14640506f48ab048664441bf71, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,9 +184,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377252864935294483, guid: a67c7e14640506f48ab048664441bf71,
         type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 3769992006883986795}
+    - target: {fileID: 5377252864935294483, guid: a67c7e14640506f48ab048664441bf71,
+        type: 3}
       propertyPath: _weaponProperties
       value: 
       objectReference: {fileID: 5311703233147839590}
+    - target: {fileID: 8633656426111695835, guid: a67c7e14640506f48ab048664441bf71,
+        type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 3769992008200738828}
     - target: {fileID: 8633656426111695835, guid: a67c7e14640506f48ab048664441bf71,
         type: 3}
       propertyPath: _weaponProperties
@@ -337,6 +354,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3769992007299946154}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &3769992007309337546 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 0aece1edd1a8c374e8edcc8922231a40,
+    type: 3}
+  m_PrefabInstance: {fileID: 3769992007299946154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3769992008191257964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,6 +417,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b257b50b0d0618f4fb5a22c6bc3e95a0, type: 3}
+--- !u!95 &3769992008200738828 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: b257b50b0d0618f4fb5a22c6bc3e95a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3769992008191257964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5311703234332471553 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9072297159837293677, guid: b257b50b0d0618f4fb5a22c6bc3e95a0,

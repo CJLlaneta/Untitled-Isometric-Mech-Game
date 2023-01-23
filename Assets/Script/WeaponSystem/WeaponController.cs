@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] List<WeaponHandler> _weaponsHold;
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] GameObject _owner;
+    [SerializeField] PlayerAim _playerAim;
     private InputControls _playerControls;
     private List<IWeapon> _weaponsRightPosition = new List<IWeapon>();
     private List<IWeapon> _weaponsLeftPosition  = new List<IWeapon>();
@@ -53,7 +54,7 @@ public class WeaponController : MonoBehaviour
     {
         foreach(IWeapon w in weapon)
         {
-            w.OnShoot();
+            w.OnShoot(_playerAim.lastPoint);
         }
     }
     private void HandleInput()

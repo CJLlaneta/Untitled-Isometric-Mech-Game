@@ -30,6 +30,8 @@ public class TwinStickMovement : MonoBehaviour
         _playerControls = new InputControls();
         _playerInput = GetComponent<PlayerInput>();
     }
+
+   
     public static bool IsGamePad
     {
         get{ return _isGamePad;}
@@ -56,10 +58,11 @@ public class TwinStickMovement : MonoBehaviour
         _movement = _playerControls.Player.Movement.ReadValue<Vector2>();
         _aim = _playerControls.Player.Aim.ReadValue<Vector2>();
     }
-
+    
     void HandleMovement()
     {
         Vector3 move = new Vector3(_movement.x,0,_movement.y);
+        move = move.ToIso();
         _characterController.Move(move * Time.deltaTime * _bodyController.MovementSpeed);
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
@@ -67,8 +70,12 @@ public class TwinStickMovement : MonoBehaviour
         if (_movement.x != 0 || _movement.y != 0)
         {
             LookAtMovement(move);
+            _bodyController.IsMoving(true);
         }
-  
+        else
+        {
+            _bodyController.IsMoving(false);
+        }
     }
 
     private void SetPlayerAim(Vector3 point)
@@ -83,7 +90,7 @@ public class TwinStickMovement : MonoBehaviour
             if (Mathf.Abs(_aim.x) > _controllerDeadZone || Mathf.Abs(_aim.y) > _controllerDeadZone)
             {
                 Vector3 playerDirection = Vector3.right * _aim.x + Vector3.forward * _aim.y;
-               
+                playerDirection = playerDirection.ToIso();
                 if (playerDirection.sqrMagnitude >0.0f)
                 {
                     // Quaternion newRotation = Quaternion.LookRotation(playerDirection,Vector3.up);

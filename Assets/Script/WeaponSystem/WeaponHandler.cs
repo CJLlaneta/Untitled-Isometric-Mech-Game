@@ -7,12 +7,17 @@ public class WeaponHandler : MonoBehaviour,IWeapon
   
     [SerializeField] WeaponProperties _weaponProperties;
     public WeaponLocation weaponLocation = WeaponLocation.right;
+    [SerializeField] float _shortestFiringDistance = 12;
+    [SerializeField] Animator _animator;
     private int _clipCapacity;
     private int _defualAmmoCapacity;
     private float _rateOfFire;
     private string _projectileID;
     private bool _allowedToFire =true;
     private GameObject _owner;
+
+    Vector3 _eulerAngles = Vector3.zero;
+    GameObject _currentProjectile;
 
     void Start()
     {
@@ -39,10 +44,27 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     {
         _owner = owner;
     }
-    private void SpawnProjectile()
+
+    private void PlayShootAnimation() 
     {
-       GameObject _proj = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position,_weaponProperties.transform.rotation);
-       _proj.GetComponent<ProjectileCollisionDetector>().SetTheOwner(_owner);
+        AnimationManager.Instance.PlayClip(_animator, "Shoot");
+    }
+
+    private void SpawnProjectile(Vector3 TargetPoint)
+    {
+        PlayShootAnimation();
+        _currentProjectile = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
+        _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetTheOwner(_owner);
+    
+        if (Vector3.Distance(_weaponProperties.muzzlePoint.position,TargetPoint) >= _shortestFiringDistance) 
+        {
+            _currentProjectile.transform.LookAt(TargetPoint);
+            _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
+            _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
+            _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
+            _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
+        }
+
     }
     IEnumerator FireCooldown()
     {
@@ -50,12 +72,12 @@ public class WeaponHandler : MonoBehaviour,IWeapon
         yield return new WaitForSeconds(_rateOfFire);
         _allowedToFire = true;
     }
-    public void OnShoot()
+    public void OnShoot(Vector3 Target)
     {
         if (_allowedToFire)
         {
             StartCoroutine(FireCooldown());
-            SpawnProjectile();
+            SpawnProjectile(Target);
         }    
     }
 }
