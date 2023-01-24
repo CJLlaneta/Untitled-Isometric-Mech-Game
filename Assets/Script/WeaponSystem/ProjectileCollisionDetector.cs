@@ -8,6 +8,8 @@ public class ProjectileCollisionDetector : MonoBehaviour
     [SerializeField] TagCollision _tagCollisions;
     [SerializeField] GameObject _ownerOfProjectile;
 
+    [SerializeField] string _hitID = "Caliber_Hit";
+
 
     public void SetTheOwner(GameObject owner)
     {
@@ -26,12 +28,21 @@ public class ProjectileCollisionDetector : MonoBehaviour
             else 
             {
                 //By Default Destroy this object
+                HitVFX();
                 gameObject.SetActive(false);
             }
         }
     }
+    GameObject _hitVFX;
+    private void HitVFX()
+    {
+        _hitVFX = ObjectPoolingManager.Instance.SpawnFromPool(_hitID, transform.position, Quaternion.identity);
+        _hitVFX.transform.LookAt(transform.position);
+    }
+
     private void ApplyConditions()
     {
+        HitVFX();
         gameObject.SetActive(false);
     }
     private bool IsWithinTag(string tag)

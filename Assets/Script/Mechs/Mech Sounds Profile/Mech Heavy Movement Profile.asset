@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890d457ef7ffd9549a9caaf0e1c4c324, type: 3}
+  m_Name: Mech Heavy Movement Profile
+  m_EditorClassIdentifier: 
+  _sfx:
+  - {fileID: 8300000, guid: c61adf5619f2fbb42a40bb39045175f4, type: 3}
+  - {fileID: 8300000, guid: 8cf035937bd7c1c45bb3fe12d453c4b2, type: 3}
+  - {fileID: 8300000, guid: 78af0f0ff08e3b54395fe0e305b20dc6, type: 3}
+  - {fileID: 8300000, guid: ab2c053562bbf4d4ca41e55a0ef0b451, type: 3}
+  - {fileID: 8300000, guid: bc7e5778d79ed844daf19e1d843c8d10, type: 3}
+  _isLoop: 0

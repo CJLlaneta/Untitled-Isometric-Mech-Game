@@ -531,6 +531,8 @@ GameObject:
   - component: {fileID: 276179266}
   - component: {fileID: 276179267}
   - component: {fileID: 276179268}
+  - component: {fileID: 276179269}
+  - component: {fileID: 276179270}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -727,6 +729,7 @@ MonoBehaviour:
   _playerInput: {fileID: 276179264}
   _owner: {fileID: 276179258}
   _playerAim: {fileID: 276179266}
+  _recoilShake: {fileID: 276179270}
 --- !u!81 &276179268
 AudioListener:
   m_ObjectHideFlags: 0
@@ -735,6 +738,73 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276179258}
   m_Enabled: 1
+--- !u!114 &276179269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276179258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 1
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &276179270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276179258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5422b3eb651531489b9286d2162b902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _impulseSource: {fileID: 276179269}
+  _powerMount: 0.1
 --- !u!1 &306856295
 GameObject:
   m_ObjectHideFlags: 3
@@ -1087,7 +1157,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-45466
+  m_Name: pb_Mesh95014
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1255,6 +1325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537552983}
   - component: {fileID: 537552982}
+  - component: {fileID: 537552984}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -1316,6 +1387,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+--- !u!114 &537552984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537552981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &630781481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
@@ -1733,7 +1827,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-53360
+  m_Name: pb_Mesh95208
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1897,7 +1991,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-30238
+  m_Name: pb_Mesh94802
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2089,8 +2183,16 @@ MonoBehaviour:
     Prefab: {fileID: 5787162453268280740, guid: 7ff2b7f4e3fb14349a9f2c8c054ba088,
       type: 3}
     Size: 50
-  _muzzleObject: []
-  _hitObject: []
+  _muzzleObject:
+  - Tag: Bullet_Cal_Large_Muzzle
+    Prefab: {fileID: 3756168200097036951, guid: 7c797438b2af6aa4090a3655ac381f85,
+      type: 3}
+    Size: 50
+  _hitObject:
+  - Tag: Caliber_Hit
+    Prefab: {fileID: 5824636553092527595, guid: b571671005cf74649a8501445d1422dc,
+      type: 3}
+    Size: 50
 --- !u!4 &1185124292
 Transform:
   m_ObjectHideFlags: 0
@@ -2486,7 +2588,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-54274
+  m_Name: pb_Mesh95156
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

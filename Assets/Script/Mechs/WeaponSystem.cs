@@ -10,23 +10,30 @@ public class WeaponSystem : MonoBehaviour
     private List<IWeapon> _weaponsLeftPosition = new List<IWeapon>();
 
 
-    public void FireWeapons(WeaponHandler.WeaponLocation WeaponLocation, Vector3 TargetAimPoint)
+    public bool FireWeapons(WeaponHandler.WeaponLocation WeaponLocation, Vector3 TargetAimPoint)
     {
+        bool _ret = false;
         if (WeaponLocation == WeaponHandler.WeaponLocation.right)
         {
             foreach (IWeapon w in _weaponsRightPosition)
             {
-                w.OnShoot(TargetAimPoint);
+                if (w.OnShoot(TargetAimPoint))
+                {
+                    _ret = true;
+                }
             }
         }
         else if (WeaponLocation == WeaponHandler.WeaponLocation.left)
         {
             foreach (IWeapon w in _weaponsLeftPosition)
             {
-                w.OnShoot(TargetAimPoint);
+                if (w.OnShoot(TargetAimPoint))
+                {
+                    _ret = true;
+                }
             }
         }
-
+        return _ret;
     }
     public void InitializeProperties(GameObject owner)
     {

@@ -14,6 +14,11 @@ public class BodyController : MonoBehaviour
     [SerializeField] float _upperBodyRotationSpeed = 5;
     [SerializeField] float _chasisRotationSpeed = 5;
 
+
+    [SerializeField] SoundController _chasisSoundController;
+    [SerializeField] SoundController _upperBodyRotationSoundController;
+  
+
     private float _currentMovementSpeed = 0;
     private void Start()
     {
@@ -32,10 +37,18 @@ public class BodyController : MonoBehaviour
     {
         Quaternion _finalRotation = Quaternion.RotateTowards(_upperBody.transform.rotation,newRotation,_upperBodyRotationSpeed * Time.deltaTime);
         _upperBody.transform.rotation = _finalRotation;
+        if (_upperBody.transform.rotation != newRotation) 
+        {
+            _upperBodyRotationSoundController.TriggerSound();
+        }
     }
     public void IsMoving(bool state)
     {
         AnimationManager.Instance.SetAnimationBoolean(_animator, "isIdle", !state);
+        if (state) 
+        {
+            _chasisSoundController.TriggerSound();
+        }
     }
 
     public void ChasisRotation(Quaternion newRotation)

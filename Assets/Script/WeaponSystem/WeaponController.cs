@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] GameObject _owner;
     [SerializeField] PlayerAim _playerAim;
+    [SerializeField] RecoilShake _recoilShake;
     private InputControls _playerControls;
 
     void Awake()
@@ -41,11 +42,18 @@ public class WeaponController : MonoBehaviour
     {
         if (_playerControls.Player.FiringRight.IsPressed())
         {
-            _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint);
+           if( _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)) 
+           {
+                _recoilShake.Recoil();
+           }
         }
         if (_playerControls.Player.FiringLeft.IsPressed())
         {
-            _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.left, _playerAim.lastPoint);
+            if (_weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.left, _playerAim.lastPoint))
+            {
+                _recoilShake.Recoil();
+            }
+           
         }
     }
 }

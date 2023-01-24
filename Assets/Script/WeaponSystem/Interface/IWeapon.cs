@@ -5,6 +5,6 @@ using UnityEngine;
 internal interface IWeapon 
 {
     void OnReload();
-    void OnShoot(Vector3 Target);
+    bool OnShoot(Vector3 Target);
     void SetTheOwner(GameObject owner);
 }

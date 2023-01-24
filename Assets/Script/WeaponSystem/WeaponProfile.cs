@@ -20,5 +20,12 @@ public class WeaponProfile : ScriptableObject
   [SerializeField] string _projectileID;
   public string ProjectileID{get {return _projectileID;} private set {_projectileID =value;}}
 
-  
+  [SerializeField] string _muzzleID;
+  public string MuzzleID { get { return _muzzleID; } private set { _muzzleID = value; } }
+
+    [SerializeField] SoundProfile _firingSoundProfile;
+    public SoundProfile FiringSoundProfile { get { return _firingSoundProfile; } private set { _firingSoundProfile = value; } }
+
+
+
 }

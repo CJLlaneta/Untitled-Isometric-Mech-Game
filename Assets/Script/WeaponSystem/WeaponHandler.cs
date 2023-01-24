@@ -6,12 +6,14 @@ public class WeaponHandler : MonoBehaviour,IWeapon
 {
   
     [SerializeField] WeaponProperties _weaponProperties;
+    [SerializeField] SoundController _soundController;
     public WeaponLocation weaponLocation = WeaponLocation.right;
     [SerializeField] Animator _animator;
     private int _clipCapacity;
     private int _defualAmmoCapacity;
     private float _rateOfFire;
     private string _projectileID;
+    private string _muzzleID;
     private bool _allowedToFire =true;
     private GameObject _owner;
 
@@ -29,6 +31,8 @@ public class WeaponHandler : MonoBehaviour,IWeapon
         _defualAmmoCapacity = _weaponProperties.weaponProfile.DefualAmmoCapacity;
         _rateOfFire = _weaponProperties.weaponProfile.RateOfFire;
         _projectileID = _weaponProperties.weaponProfile.ProjectileID;
+        _muzzleID = _weaponProperties.weaponProfile.MuzzleID;
+        _soundController.SetSoundProfile(_weaponProperties.weaponProfile.FiringSoundProfile);
     }
     public enum WeaponLocation
     {
@@ -48,7 +52,10 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     {
         AnimationManager.Instance.PlayClip(_animator, "Shoot");
     }
-
+    private void SpawnMuzzle() 
+    {
+        ObjectPoolingManager.Instance.SpawnFromPool(_muzzleID, _weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
+    }
     private void SpawnProjectile(Vector3 TargetPoint)
     {
         PlayShootAnimation();
@@ -67,12 +74,17 @@ public class WeaponHandler : MonoBehaviour,IWeapon
         yield return new WaitForSeconds(_rateOfFire);
         _allowedToFire = true;
     }
-    public void OnShoot(Vector3 Target)
+    public bool OnShoot(Vector3 Target)
     {
+        bool _ret = false;
         if (_allowedToFire)
         {
             StartCoroutine(FireCooldown());
             SpawnProjectile(Target);
-        }    
+            SpawnMuzzle();
+            _soundController.TriggerSound();
+            return true;
+        }
+        return _ret;
     }
 }
