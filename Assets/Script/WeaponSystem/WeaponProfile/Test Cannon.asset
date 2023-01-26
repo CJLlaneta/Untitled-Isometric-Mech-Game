@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Test Cannon
   m_EditorClassIdentifier: 
   _weaponName: Test Cannon
+  _damage: 50
   _clipCapacity: 5
   _defualAmmoCapacity: 25
   _rateOfFire: 0.1

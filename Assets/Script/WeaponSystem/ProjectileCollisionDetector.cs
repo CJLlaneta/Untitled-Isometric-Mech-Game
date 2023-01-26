@@ -5,6 +5,7 @@ using System.Linq;
 
 public class ProjectileCollisionDetector : MonoBehaviour
 {
+    [SerializeField] float _damage = 1;
     [SerializeField] TagCollision _tagCollisions;
     [SerializeField] GameObject _ownerOfProjectile;
 
@@ -16,6 +17,13 @@ public class ProjectileCollisionDetector : MonoBehaviour
         _ownerOfProjectile = owner;
     }
 
+    public void SetProperties(GameObject owner,float Damage)
+    {
+        _ownerOfProjectile = owner;
+        _damage = Damage;
+    }
+
+    GameObject _hittedObject;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject != _ownerOfProjectile)
@@ -23,7 +31,8 @@ public class ProjectileCollisionDetector : MonoBehaviour
             if (IsWithinTag(other.transform.tag))
             {
                 //Do Something
-                ApplyConditions();
+                _hittedObject = other.gameObject;
+                ApplyConditions(other.transform.tag);
             }
             else 
             {
@@ -39,10 +48,18 @@ public class ProjectileCollisionDetector : MonoBehaviour
         _hitVFX = ObjectPoolingManager.Instance.SpawnFromPool(_hitID, transform.position, Quaternion.identity);
         _hitVFX.transform.LookAt(transform.position);
     }
-
-    private void ApplyConditions()
+    private void ApplyDamage() 
+    {
+        _hittedObject.GetComponent<DamageSystem>().ApplyDamage(_damage);
+    }
+    private void ApplyConditions(string tag)
     {
         HitVFX();
+        CollisionTagProperties colProperties = _tagCollisions.CollisionTag.Single(col => col.TagName == tag);
+        if (colProperties.HasDamageSystem) 
+        {
+            ApplyDamage();
+        }
         gameObject.SetActive(false);
     }
     private bool IsWithinTag(string tag)

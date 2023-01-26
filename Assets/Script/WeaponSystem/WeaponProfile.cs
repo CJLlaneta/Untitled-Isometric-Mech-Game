@@ -8,6 +8,8 @@ public class WeaponProfile : ScriptableObject
 {
   [SerializeField] string _weaponName;
   public string WeaponName{get {return _weaponName;} private set {_weaponName =value;}}
+  [SerializeField] float _damage;
+  public float Damage { get { return _damage; } private set { _damage = value; } }
 
   [SerializeField] int _clipCapacity;
   public int ClipCapacity{get {return _clipCapacity;} private set {_clipCapacity =value;}}

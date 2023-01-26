@@ -14,6 +14,7 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     private float _rateOfFire;
     private string _projectileID;
     private string _muzzleID;
+    private float _damage = 0;
     private bool _allowedToFire =true;
     private GameObject _owner;
 
@@ -32,6 +33,7 @@ public class WeaponHandler : MonoBehaviour,IWeapon
         _rateOfFire = _weaponProperties.weaponProfile.RateOfFire;
         _projectileID = _weaponProperties.weaponProfile.ProjectileID;
         _muzzleID = _weaponProperties.weaponProfile.MuzzleID;
+        _damage = _weaponProperties.weaponProfile.Damage;
         _soundController.SetSoundProfile(_weaponProperties.weaponProfile.FiringSoundProfile);
     }
     public enum WeaponLocation
@@ -60,7 +62,8 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     {
         PlayShootAnimation();
         _currentProjectile = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
-        _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetTheOwner(_owner);
+
+        _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetProperties(_owner, _damage);
         _currentProjectile.transform.LookAt(TargetPoint);
         _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
         _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;

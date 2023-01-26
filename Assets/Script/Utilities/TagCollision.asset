@@ -15,3 +15,7 @@ MonoBehaviour:
   _collisionTag:
   - TagName: Untagged
     PassThrough: 0
+    HasDamageSystem: 0
+  - TagName: DestructableObject
+    PassThrough: 0
+    HasDamageSystem: 1
