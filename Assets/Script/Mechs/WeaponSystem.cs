@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.GridLayoutGroup;
+using System.Linq;
 
 public class WeaponSystem : MonoBehaviour
 {
@@ -10,30 +10,20 @@ public class WeaponSystem : MonoBehaviour
     private List<IWeapon> _weaponsLeftPosition = new List<IWeapon>();
 
 
-    public bool FireWeapons(WeaponHandler.WeaponLocation WeaponLocation, Vector3 TargetAimPoint)
+    public bool FireWeapons(WeaponHandler.WeaponLocation WeaponLocation, 
+        Vector3 TargetAimPoint)
     {
-        bool _ret = false;
         if (WeaponLocation == WeaponHandler.WeaponLocation.right)
         {
-            foreach (IWeapon w in _weaponsRightPosition)
-            {
-                if (w.OnShoot(TargetAimPoint))
-                {
-                    _ret = true;
-                }
-            }
+           var _result = _weaponsRightPosition.Select(w => w.OnShoot(TargetAimPoint));
+            return _result.Any(r => r);
         }
         else if (WeaponLocation == WeaponHandler.WeaponLocation.left)
         {
-            foreach (IWeapon w in _weaponsLeftPosition)
-            {
-                if (w.OnShoot(TargetAimPoint))
-                {
-                    _ret = true;
-                }
-            }
+            var _result = _weaponsLeftPosition.Select(w => w.OnShoot(TargetAimPoint));
+            return _result.Any(r => r);
         }
-        return _ret;
+        return false;
     }
     public void InitializeProperties(GameObject owner)
     {
