@@ -18,9 +18,13 @@ public class DamageSystem : MonoBehaviour
         {
             OnBreakEvent?.Invoke();
         }
+        OnDamageEvent.Invoke(healthValue, _hp);
+
     }
     //implementation
     //DamageSystem.OnBreakEvent += BreakArmor;
+    public delegate void OnDamage(float MaxHP,float CurrentHP);
+    public event OnDamage OnDamageEvent;
 
     public delegate void OnBreak();
     public event OnBreak OnBreakEvent;
