@@ -87,6 +87,7 @@ MonoBehaviour:
     type: 2}
   _objectToDestory:
   - {fileID: 4602893630513007271}
+  _damageRespawnOffSet: {x: -4.7, y: 0, z: -3.7}
 --- !u!114 &2473752637838502560
 MonoBehaviour:
   m_ObjectHideFlags: 0

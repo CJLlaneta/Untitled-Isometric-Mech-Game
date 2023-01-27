@@ -7,6 +7,7 @@ public class DamageController : MonoBehaviour
     [SerializeField] DamageSystem _damageSystem;
     [SerializeField] DestructionProfile _destructionProfile;
     [SerializeField] List<GameObject> _objectToDestory;
+    [SerializeField] Vector3 _damageRespawnOffSet = Vector3.zero;
     void Start()
     {
         _damageSystem.OnBreakEvent += OnBreak;
@@ -15,6 +16,11 @@ public class DamageController : MonoBehaviour
     private void ShowDestructionProps(List<GameObject> props)
     {
         GameObject _prop = Instantiate(props[Random.Range(0, props.Count)], transform.position, Quaternion.identity);
+        Vector3 _v = _prop.transform.position;
+        _v.x += _damageRespawnOffSet.x;
+        _v.y += _damageRespawnOffSet.y;
+        _v.z += _damageRespawnOffSet.z;
+        _prop.transform.position = _v;
         _prop.SetActive(true);
     }
 
@@ -39,5 +45,6 @@ public class DamageController : MonoBehaviour
         ShowDestructionProps(_destructionProfile.DestroyedEffects);
         ShowDestructionProps(_destructionProfile.DestroyedPrefabs);
         HideObject();
+
     }
 }
