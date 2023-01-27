@@ -201,5 +201,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0a39cd4f62d694c945a180ff5fbc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CutCascades: 3
-  ExplodeForce: 15
+  CutCascades: 2
+  ExplodeForce: 180

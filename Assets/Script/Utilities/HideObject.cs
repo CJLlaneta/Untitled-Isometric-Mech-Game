@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideObject : MonoBehaviour
 {
     [SerializeField] float _lifeDuration =3f;
+    [SerializeField] List<GameObject> _includeThisObject = new List<GameObject>();
     void Start()
     {
         
@@ -13,7 +14,13 @@ public class HideObject : MonoBehaviour
     {
         cnt = 0;
     }
-
+    private void ObjectToInclude() 
+    {
+        foreach(GameObject b in _includeThisObject) 
+        {
+            b.SetActive(false);
+        }
+    }
     float cnt = 0;
     void Update()
     {
@@ -21,6 +28,7 @@ public class HideObject : MonoBehaviour
         if (cnt >=_lifeDuration)
         {
             cnt = 0;
+            ObjectToInclude();
             gameObject.SetActive(false);
         }
     }

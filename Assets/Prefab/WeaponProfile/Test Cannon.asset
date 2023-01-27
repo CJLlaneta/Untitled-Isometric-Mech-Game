@@ -16,7 +16,7 @@ MonoBehaviour:
   _damage: 50
   _clipCapacity: 5
   _defualAmmoCapacity: 25
-  _rateOfFire: 0.3
+  _rateOfFire: 0.15
   _projectileID: Bullet_Cal_Large
   _muzzleID: Bullet_Cal_Large_Muzzle
   _firingSoundProfile: {fileID: 11400000, guid: b3631b1e37c74fa4faf4b65ccbfaf0b1,
