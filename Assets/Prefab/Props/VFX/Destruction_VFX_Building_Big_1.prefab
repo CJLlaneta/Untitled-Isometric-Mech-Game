@@ -130,6 +130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198308581884401260, guid: 2b79ec10654f26344816627d7515c1df,
         type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308581884401260, guid: 2b79ec10654f26344816627d7515c1df,
+        type: 3}
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
@@ -146,6 +151,11 @@ PrefabInstance:
     - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,
         type: 3}
       propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,
+        type: 3}
+      propertyPath: startDelay.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,
@@ -176,6 +186,11 @@ PrefabInstance:
     - target: {fileID: 198528835683588384, guid: 2b79ec10654f26344816627d7515c1df,
         type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198528835683588384, guid: 2b79ec10654f26344816627d7515c1df,
+        type: 3}
+      propertyPath: startDelay.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198528835683588384, guid: 2b79ec10654f26344816627d7515c1df,
@@ -319,6 +334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198308581884401260, guid: 2b79ec10654f26344816627d7515c1df,
         type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198308581884401260, guid: 2b79ec10654f26344816627d7515c1df,
+        type: 3}
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
@@ -335,6 +355,11 @@ PrefabInstance:
     - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,
         type: 3}
       propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,
+        type: 3}
+      propertyPath: startDelay.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198389423917127694, guid: 2b79ec10654f26344816627d7515c1df,

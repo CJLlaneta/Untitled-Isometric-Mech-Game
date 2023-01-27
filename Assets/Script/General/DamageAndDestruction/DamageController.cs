@@ -22,7 +22,15 @@ public class DamageController : MonoBehaviour
     {
         foreach(GameObject g in _objectToDestory) 
         {
-            g.SetActive(false);
+            if (g.GetComponent<MeshDestroy>()) 
+            {
+                g.GetComponent<MeshDestroy>().DestroyMesh();
+            }
+            else 
+            {
+                g.SetActive(false);
+            }
+
         }
     }
 
