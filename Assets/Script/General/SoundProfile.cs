@@ -11,4 +11,8 @@ public class SoundProfile : ScriptableObject
     public bool IsLoop { get { return _isLoop; } set { _isLoop = value; } }
     [SerializeField] bool _oneShotTrigger;
     public bool OneShotTrigger { get { return _oneShotTrigger; } set { _oneShotTrigger = value; } }
+
+    [SerializeField] bool _triggerStart;
+    public bool triggerStart { get { return _triggerStart; } set { _triggerStart = value; } }
+
 }
