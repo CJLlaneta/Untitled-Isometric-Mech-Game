@@ -50,10 +50,10 @@ public class EnemyHuman : MonoBehaviour,IAI
         Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
         Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
         Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
-        Sequence reloadAndCover = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
+        Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
 
         
-        _topNode = new Selector(new List<Node> { reloadAndCover ,shootSequence,  chaseSequence,   });
+        _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence,  chaseSequence,   });
 
     }
     public Transform GetTheBestCover() 
