@@ -20,5 +20,5 @@ MonoBehaviour:
     PassThrough: 0
     HasDamageSystem: 1
   - TagName: EnemyHuman
-    PassThrough: 0
+    PassThrough: 1
     HasDamageSystem: 1

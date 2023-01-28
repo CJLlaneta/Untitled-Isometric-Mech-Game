@@ -9,6 +9,8 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     [SerializeField] SoundController _soundController;
     public WeaponLocation weaponLocation = WeaponLocation.right;
     [SerializeField] Animator _animator;
+    [SerializeField] private GameObject _owner;
+    [SerializeField] private bool _ignoreOffset = false;
     private int _clipCapacity;
     private int _defualAmmoCapacity;
     private float _rateOfFire;
@@ -16,7 +18,7 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     private string _muzzleID;
     private float _damage = 0;
     private bool _allowedToFire =true;
-    private GameObject _owner;
+   
 
     Vector3 _eulerAngles = Vector3.zero;
     GameObject _currentProjectile;
@@ -52,7 +54,11 @@ public class WeaponHandler : MonoBehaviour,IWeapon
 
     private void PlayShootAnimation() 
     {
-        AnimationManager.Instance.PlayClip(_animator, "Shoot");
+        if (_animator != null) 
+        {
+            AnimationManager.Instance.PlayClip(_animator, "Shoot");
+        }
+
     }
     private void SpawnMuzzle() 
     {
@@ -65,10 +71,14 @@ public class WeaponHandler : MonoBehaviour,IWeapon
 
         _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetProperties(_owner, _damage);
         _currentProjectile.transform.LookAt(TargetPoint);
-        _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
-        _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
-        _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
-        _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
+        if (!_ignoreOffset) 
+        {
+            _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
+            _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
+            _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
+            _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
+        }
+
   
     }
     IEnumerator FireCooldown()

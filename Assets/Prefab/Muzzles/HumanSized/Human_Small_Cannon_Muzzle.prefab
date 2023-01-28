@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4424436735172898013}
   - component: {fileID: 4424436735172897986}
   m_Layer: 0
-  m_Name: Muzzle_Small_Cannon
+  m_Name: Human_Small_Cannon_Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,13 +25,15 @@ public class GoToCoverNode : Node
         float distance = Vector3.Distance(cover.position, _navMeshAgent.transform.position);
         if (distance > 0.2f) 
         {
+            _enemyAI.OnMove();
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(cover.position);
             return NodeState.RUNNING;
         }
         else 
         {
-            _navMeshAgent.enabled = false;            _navMeshAgent.isStopped = true;
+            _enemyAI.SetIdle();
+            _navMeshAgent.isStopped = true;
             return NodeState.SUCCESS;
         }
     }

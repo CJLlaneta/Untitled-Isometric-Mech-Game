@@ -7,10 +7,12 @@ public class EnemyHuman : MonoBehaviour,IAI
 {
     // Start is called before the first frame update
     [SerializeField] float _reloadDuration;
+    [SerializeField] WeaponHandler _weaponHandler;
+    [SerializeField] Transform _muzzlePoint;
     private bool _isOnReload =false;
-    private bool _isIdle = false;
     [SerializeField] private float _chaseRange;
     [SerializeField] private float _shootingRange;
+    [SerializeField] private float _movespeed;
     [SerializeField] private NavMeshAgent _navmeshAgent;
     [SerializeField] Node _topNode;
     [SerializeField] private Transform _target;
@@ -23,6 +25,13 @@ public class EnemyHuman : MonoBehaviour,IAI
 
     void Start()
     {
+        Initialized();
+    }
+
+    private void Initialized() 
+    {
+        _navmeshAgent.speed = _movespeed;
+     
         ConstructAITree();
     }
     void OnDrawGizmosSelected()
@@ -38,8 +47,7 @@ public class EnemyHuman : MonoBehaviour,IAI
         IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(_covers, _target, this);
         GoToCoverNode goToCoverNode = new GoToCoverNode(_navmeshAgent, this);
         OnReloadNode reloadNode = new OnReloadNode(this);
-        IdleNode idleNode = new IdleNode(_navmeshAgent, this, _target);
-        IsOnIdleNode isOnIdleNode = new IsOnIdleNode(_navmeshAgent, this);
+
         IsCoveredNode isCoveredNode = new IsCoveredNode(_target, transform);
         ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
         RangeNode chasingRangeNode = new RangeNode(_chaseRange, _target, transform);
@@ -55,8 +63,8 @@ public class EnemyHuman : MonoBehaviour,IAI
         Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
         Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
         Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
-        Selector reloadOrIdleSelector = new Selector(new List<Node> { reloadAndCoverSequence, idleNode });
-        Sequence IdleSequence = new Sequence(new List<Node> { isOnIdleNode, reloadOrIdleSelector });
+        
+        
         //_topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence,  chaseSequence,   });
         _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence, chaseSequence, });
     }
@@ -73,40 +81,32 @@ public class EnemyHuman : MonoBehaviour,IAI
     {
         if (!_isOnReload)
         {
-            _isOnReload = true;
+            // Debug.Log("fire");
+            _muzzlePoint.LookAt(_target.position);
+            _weaponHandler.OnShoot(_target.position);
+             _isOnReload = true;
             AnimationManager.Instance.PlayClip(_animator, "Shoot");
         }
-        //if (!IsAnimationPlaying("Shoot"))
-        //{
-        //    _isOnReload = true;
-        //    SetToIdle(true);
-        //    AnimationManager.Instance.PlayClip(_animator, "Shoot");
-        //    StartCoroutine(CheckIfDoneShooting());
-        //}
 
     }
-    IEnumerator CheckIfDoneShooting() 
-    {
-        do
-        {
-            yield return null;
-        } while (IsAnimationPlaying("Shooting"));
-        SetToIdle(false);
-        
 
-    }
     private bool IsAnimationPlaying(string animationClip) 
     {
         return AnimationManager.Instance.IsAnimationClipPlaying(_animator, animationClip);
     }
-    public bool GetIdleStatus() 
+
+
+    public void SetIdle() 
     {
-        return _isIdle;
+        AnimationManager.Instance.SetAnimationBoolean(_animator, "Running", false);
     }
-    public void SetToIdle(bool status) 
+
+    public void OnMove()
     {
-        _isIdle = status;
+        AnimationManager.Instance.SetAnimationBoolean(_animator, "Running", true);
     }
+
+
     public bool GetReloadState() 
     {
         return _isOnReload;
@@ -135,9 +135,15 @@ public class EnemyHuman : MonoBehaviour,IAI
         
         }
     }
+
+    float _cntExecute = 0;
     void Update()
     {
-        NodeEvaluation();
+        _cntExecute += 1 * Time.deltaTime;
+        if (_cntExecute >= 1) 
+        {
+            NodeEvaluation();
+        }
         ReloadCoolDown();
     }
 }

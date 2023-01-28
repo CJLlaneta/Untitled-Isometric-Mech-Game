@@ -24,11 +24,13 @@ public class ChaseNode : Node
 
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(_target.position);
+            _enemyAI.OnMove();
+            //Debug.Log("Im Chasing");
             return NodeState.RUNNING;
         }
         else 
         {
-
+            _enemyAI.SetIdle();
             _navMeshAgent.isStopped = true;
             return NodeState.SUCCESS;
         }

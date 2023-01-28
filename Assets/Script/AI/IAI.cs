@@ -9,8 +9,8 @@ public interface IAI
 
 
     void Shoot();
-    bool GetIdleStatus();
-    void SetToIdle(bool status);
+    void SetIdle();
+    void OnMove();
     Transform GetTheBestCover();
     void SetBestCoverSpot(Transform cover);
 
