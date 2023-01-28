@@ -6,10 +6,11 @@ public interface IAI
 {
     bool GetReloadState();
 
-    void SetAggressive();
+
 
     void Shoot();
-    void SetToIdle();
+    bool GetIdleStatus();
+    void SetToIdle(bool status);
     Transform GetTheBestCover();
     void SetBestCoverSpot(Transform cover);
 

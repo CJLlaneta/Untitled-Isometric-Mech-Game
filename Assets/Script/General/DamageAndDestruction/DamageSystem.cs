@@ -18,7 +18,11 @@ public class DamageSystem : MonoBehaviour
         {
             OnBreakEvent?.Invoke();
         }
-        OnDamageEvent.Invoke(healthValue, _hp);
+        if (OnDamageEvent != null) 
+        {
+            OnDamageEvent.Invoke(healthValue, _hp);
+        }
+   
 
     }
     //implementation

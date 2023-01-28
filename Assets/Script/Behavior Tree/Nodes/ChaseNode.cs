@@ -19,14 +19,16 @@ public class ChaseNode : Node
     {
 
         float distance = Vector3.Distance(_target.position, _navMeshAgent.transform.position);
-        if (distance > 0.2f) 
+        if (distance > 2f) 
         {
+
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(_target.position);
             return NodeState.RUNNING;
         }
         else 
         {
+
             _navMeshAgent.isStopped = true;
             return NodeState.SUCCESS;
         }

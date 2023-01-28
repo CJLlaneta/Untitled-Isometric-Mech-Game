@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: Human
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 3175324760430834485, guid: 42c5d294b1f42204d86ef727653e59e0, type: 3}
+  _destroyedEffects:
+  - {fileID: 1497120710337033881, guid: d82960f0f15638342b2455c6d6e77eb0, type: 3}

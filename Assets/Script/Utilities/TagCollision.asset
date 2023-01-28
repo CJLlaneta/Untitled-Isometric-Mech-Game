@@ -19,3 +19,6 @@ MonoBehaviour:
   - TagName: DestructableObject
     PassThrough: 0
     HasDamageSystem: 1
+  - TagName: EnemyHuman
+    PassThrough: 0
+    HasDamageSystem: 1

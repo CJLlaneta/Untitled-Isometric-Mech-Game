@@ -20,6 +20,7 @@ public class ShootNode : Node
 
     public override NodeState Evaluate()
     {
+
         _navMeshAgent.isStopped = true;
         _enemyAI.Shoot();
         Vector3 _dir = _target.position - _navMeshAgent.transform.position;

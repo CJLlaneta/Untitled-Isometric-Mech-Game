@@ -8,14 +8,15 @@ public class EnemyHuman : MonoBehaviour,IAI
     // Start is called before the first frame update
     [SerializeField] float _reloadDuration;
     private bool _isOnReload =false;
-
+    private bool _isIdle = false;
     [SerializeField] private float _chaseRange;
     [SerializeField] private float _shootingRange;
     [SerializeField] private NavMeshAgent _navmeshAgent;
     [SerializeField] Node _topNode;
     [SerializeField] private Transform _target;
+    [SerializeField] private Animator _animator;
     [SerializeField] List<Cover> _covers = new List<Cover>();
-    private bool _isAggressive = false;
+ 
     private Transform _bestConverSpot;
 
    
@@ -37,9 +38,12 @@ public class EnemyHuman : MonoBehaviour,IAI
         IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(_covers, _target, this);
         GoToCoverNode goToCoverNode = new GoToCoverNode(_navmeshAgent, this);
         OnReloadNode reloadNode = new OnReloadNode(this);
+        IdleNode idleNode = new IdleNode(_navmeshAgent, this, _target);
+        IsOnIdleNode isOnIdleNode = new IsOnIdleNode(_navmeshAgent, this);
         IsCoveredNode isCoveredNode = new IsCoveredNode(_target, transform);
         ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
         RangeNode chasingRangeNode = new RangeNode(_chaseRange, _target, transform);
+
         RangeNode shootingRangeNode = new RangeNode(_shootingRange, _target, transform);
         ShootNode shootNode = new ShootNode(_navmeshAgent, this, _target);
 
@@ -51,10 +55,10 @@ public class EnemyHuman : MonoBehaviour,IAI
         Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
         Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
         Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
-
-        
-        _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence,  chaseSequence,   });
-
+        Selector reloadOrIdleSelector = new Selector(new List<Node> { reloadAndCoverSequence, idleNode });
+        Sequence IdleSequence = new Sequence(new List<Node> { isOnIdleNode, reloadOrIdleSelector });
+        //_topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence,  chaseSequence,   });
+        _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence, chaseSequence, });
     }
     public Transform GetTheBestCover() 
     {
@@ -67,21 +71,41 @@ public class EnemyHuman : MonoBehaviour,IAI
 
     public void Shoot() 
     {
-        if (!_isOnReload) 
+        if (!_isOnReload)
         {
-            //Debug.Log("shoot");
             _isOnReload = true;
-            _isAggressive = true;
+            AnimationManager.Instance.PlayClip(_animator, "Shoot");
         }
+        //if (!IsAnimationPlaying("Shoot"))
+        //{
+        //    _isOnReload = true;
+        //    SetToIdle(true);
+        //    AnimationManager.Instance.PlayClip(_animator, "Shoot");
+        //    StartCoroutine(CheckIfDoneShooting());
+        //}
 
     }
-    public void SetAggressive() 
+    IEnumerator CheckIfDoneShooting() 
     {
-        _isAggressive = true;
+        do
+        {
+            yield return null;
+        } while (IsAnimationPlaying("Shooting"));
+        SetToIdle(false);
+        
+
     }
-    public void SetToIdle() 
+    private bool IsAnimationPlaying(string animationClip) 
     {
-        _isAggressive = false;
+        return AnimationManager.Instance.IsAnimationClipPlaying(_animator, animationClip);
+    }
+    public bool GetIdleStatus() 
+    {
+        return _isIdle;
+    }
+    public void SetToIdle(bool status) 
+    {
+        _isIdle = status;
     }
     public bool GetReloadState() 
     {
@@ -104,6 +128,7 @@ public class EnemyHuman : MonoBehaviour,IAI
     }
     private void NodeEvaluation() 
     {
+        //Debug.Log(_topNode.nodeState.);
         _topNode.Evaluate();
         if (_topNode.nodeState == NodeState.FAILURE) 
         {

@@ -19,6 +19,11 @@ public class SoundController : MonoBehaviour
     }
     private void OnEnable()
     {
+
+    }
+    private void Initialized()
+    {
+
         if (_soundProfile != null)
         {
             _audioSource.loop = _soundProfile.IsLoop;
@@ -27,11 +32,6 @@ public class SoundController : MonoBehaviour
                 TriggerSound();
             }
         }
-    }
-    private void Initialized()
-    {
-
-
     }
 
     private AudioClip GetClip() 

@@ -15,5 +15,5 @@ MonoBehaviour:
   _sfx:
   - {fileID: 8300000, guid: 7974b5d31398f10408034dd3a7b36f10, type: 3}
   _isLoop: 0
-  _oneShotTrigger: 1
+  _oneShotTrigger: 0
   _triggerStart: 1

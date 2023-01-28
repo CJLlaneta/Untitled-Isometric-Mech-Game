@@ -31,7 +31,7 @@ public class GoToCoverNode : Node
         }
         else 
         {
-            _navMeshAgent.isStopped = true;
+            _navMeshAgent.enabled = false;            _navMeshAgent.isStopped = true;
             return NodeState.SUCCESS;
         }
     }
