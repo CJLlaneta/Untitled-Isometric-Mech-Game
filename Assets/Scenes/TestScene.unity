@@ -1010,7 +1010,6 @@ GameObject:
   - component: {fileID: 276179263}
   - component: {fileID: 276179266}
   - component: {fileID: 276179267}
-  - component: {fileID: 276179268}
   - component: {fileID: 276179269}
   - component: {fileID: 276179270}
   m_Layer: 3
@@ -1083,6 +1082,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1553282357}
+  - {fileID: 1707287383}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1210,14 +1210,6 @@ MonoBehaviour:
   _owner: {fileID: 276179258}
   _playerAim: {fileID: 276179266}
   _recoilShake: {fileID: 276179270}
---- !u!81 &276179268
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276179258}
-  m_Enabled: 1
 --- !u!114 &276179269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2690,7 +2682,7 @@ MonoBehaviour:
   - Tag: High_Velocity
     Prefab: {fileID: 5787162453268280740, guid: 603a0e03a06958b47b7250bf70167005,
       type: 3}
-    Size: 10
+    Size: 30
   _muzzleObject:
   - Tag: Bullet_Cal_Large_Muzzle
     Prefab: {fileID: 3756168200097036951, guid: 7c797438b2af6aa4090a3655ac381f85,
@@ -2703,7 +2695,7 @@ MonoBehaviour:
   - Tag: High_Velocity_Muzzle
     Prefab: {fileID: 3756168200097036951, guid: c9d42f7518b6b7749932f315d61e1f29,
       type: 3}
-    Size: 10
+    Size: 30
   _hitObject:
   - Tag: Caliber_Hit
     Prefab: {fileID: 5824636553092527595, guid: b571671005cf74649a8501445d1422dc,
@@ -2716,7 +2708,7 @@ MonoBehaviour:
   - Tag: High_Velocity_Hit
     Prefab: {fileID: 5824636553092527595, guid: 0739f689581b0f844989ab9924780d68,
       type: 3}
-    Size: 10
+    Size: 30
 --- !u!4 &1185124292
 Transform:
   m_ObjectHideFlags: 0
@@ -3109,6 +3101,46 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1732194262}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1707287382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707287383}
+  - component: {fileID: 1707287384}
+  m_Layer: 3
+  m_Name: AudioListner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707287383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707287382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.16, z: 0.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 276179262}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1707287384
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707287382}
+  m_Enabled: 1
 --- !u!1001 &1732194262
 PrefabInstance:
   m_ObjectHideFlags: 0

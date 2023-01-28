@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Large_Caliber
   m_EditorClassIdentifier: 
   _sfx:
-  - {fileID: 8300000, guid: d78e758c34575bf4ca17578a849d5bc4, type: 3}
+  - {fileID: 8300000, guid: 803a86867eb18804899eaff436aa2b42, type: 3}
   _isLoop: 0
   _oneShotTrigger: 1
+  _triggerStart: 0

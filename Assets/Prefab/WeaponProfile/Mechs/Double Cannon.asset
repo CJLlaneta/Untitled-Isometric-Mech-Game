@@ -16,7 +16,7 @@ MonoBehaviour:
   _damage: 100
   _clipCapacity: 5
   _defualAmmoCapacity: 25
-  _rateOfFire: 1
+  _rateOfFire: 0.8
   _projectileID: High_Velocity
   _muzzleID: High_Velocity_Muzzle
   _firingSoundProfile: {fileID: 11400000, guid: 1f7569e0b05e99a4db805cf7247240c0,
