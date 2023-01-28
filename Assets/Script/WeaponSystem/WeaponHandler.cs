@@ -62,24 +62,29 @@ public class WeaponHandler : MonoBehaviour,IWeapon
     }
     private void SpawnMuzzle() 
     {
-        ObjectPoolingManager.Instance.SpawnFromPool(_muzzleID, _weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
+        foreach (Transform muzzle in _weaponProperties.muzzlePoint) 
+        {
+            ObjectPoolingManager.Instance.SpawnFromPool(_muzzleID, muzzle.position, _weaponProperties.transform.rotation);
+        }
+        
     }
     private void SpawnProjectile(Vector3 TargetPoint)
     {
         PlayShootAnimation();
-        _currentProjectile = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID,_weaponProperties.muzzlePoint.position, _weaponProperties.transform.rotation);
-
-        _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetProperties(_owner, _damage);
-        _currentProjectile.transform.LookAt(TargetPoint);
-        if (!_ignoreOffset) 
+        foreach (Transform muzzle in _weaponProperties.muzzlePoint)
         {
-            _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
-            _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
-            _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
-            _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
-        }
+            _currentProjectile = ObjectPoolingManager.Instance.SpawnFromPool(_projectileID, muzzle.position, _weaponProperties.transform.rotation);
 
-  
+            _currentProjectile.GetComponent<ProjectileCollisionDetector>().SetProperties(_owner, _damage);
+            _currentProjectile.transform.LookAt(TargetPoint);
+            if (!_ignoreOffset)
+            {
+                _eulerAngles = _currentProjectile.transform.rotation.eulerAngles;
+                _eulerAngles.y = _weaponProperties.transform.eulerAngles.y;
+                _eulerAngles.z = _weaponProperties.transform.eulerAngles.z;
+                _currentProjectile.transform.rotation = Quaternion.Euler(_eulerAngles);
+            }
+        }
     }
     IEnumerator FireCooldown()
     {

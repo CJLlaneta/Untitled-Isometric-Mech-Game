@@ -2687,6 +2687,10 @@ MonoBehaviour:
     Prefab: {fileID: 5787162453268280740, guid: 8fb83570d86d5ff4baccaada868cb4cc,
       type: 3}
     Size: 10
+  - Tag: High_Velocity
+    Prefab: {fileID: 5787162453268280740, guid: 603a0e03a06958b47b7250bf70167005,
+      type: 3}
+    Size: 10
   _muzzleObject:
   - Tag: Bullet_Cal_Large_Muzzle
     Prefab: {fileID: 3756168200097036951, guid: 7c797438b2af6aa4090a3655ac381f85,
@@ -2694,6 +2698,10 @@ MonoBehaviour:
     Size: 50
   - Tag: Human_Small_Cannon_Muzzle
     Prefab: {fileID: 6407495475689548531, guid: 8dd2372f2b387574681c6c208c3034ad,
+      type: 3}
+    Size: 10
+  - Tag: High_Velocity_Muzzle
+    Prefab: {fileID: 3756168200097036951, guid: c9d42f7518b6b7749932f315d61e1f29,
       type: 3}
     Size: 10
   _hitObject:
@@ -2705,6 +2713,10 @@ MonoBehaviour:
     Prefab: {fileID: 5824636553092527595, guid: ca392f1650a5ee64882649ff07a30cfc,
       type: 3}
     Size: 10
+  - Tag: High_Velocity_Hit
+    Prefab: {fileID: 5824636553092527595, guid: 0739f689581b0f844989ab9924780d68,
+      type: 3}
+    Size: 10
 --- !u!4 &1185124292
 Transform:
   m_ObjectHideFlags: 0
@@ -2712,7 +2724,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185124290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -34.033554, y: -57.229355, z: 48.641563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3782,6 +3794,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7175969763115325557, guid: 8f164270bfcb3d74094afb8ebe506050,
+        type: 3}
+      propertyPath: muzzlePoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 1738533851}
     - target: {fileID: 7175969763115325567, guid: 8f164270bfcb3d74094afb8ebe506050,
         type: 3}
       propertyPath: _owner

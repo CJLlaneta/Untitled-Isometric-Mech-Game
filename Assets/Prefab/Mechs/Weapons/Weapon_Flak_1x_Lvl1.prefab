@@ -362,4 +362,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponProfile: {fileID: 11400000, guid: 17ba410ae74a61f4caf944c0c9e8ce40, type: 2}
-  muzzlePoint: {fileID: 7293745925955354664}
+  muzzlePoint:
+  - {fileID: 7293745925955354664}

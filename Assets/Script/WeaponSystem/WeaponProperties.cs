@@ -5,6 +5,6 @@ using UnityEngine;
 public class WeaponProperties : MonoBehaviour
 {
     public WeaponProfile weaponProfile;
-    public Transform muzzlePoint;
+    public Transform[] muzzlePoint;
     
 }
