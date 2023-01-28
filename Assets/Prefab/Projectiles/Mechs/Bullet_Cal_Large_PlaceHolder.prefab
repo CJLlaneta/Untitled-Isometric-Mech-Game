@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7232442fddc8b7b48a9f9404d1c1fe67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
   _tagCollisions: {fileID: 11400000, guid: 4a94ac146df08a74c8885e7b0f0b1e46, type: 2}
   _ownerOfProjectile: {fileID: 0}
   _hitID: Caliber_Hit
@@ -158,3 +159,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeDuration: 3
+  _includeThisObject: []

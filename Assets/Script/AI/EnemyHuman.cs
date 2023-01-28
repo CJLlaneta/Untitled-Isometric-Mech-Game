@@ -48,10 +48,9 @@ public class EnemyHuman : MonoBehaviour,IAI
         GoToCoverNode goToCoverNode = new GoToCoverNode(_navmeshAgent, this);
         OnReloadNode reloadNode = new OnReloadNode(this);
 
-        IsCoveredNode isCoveredNode = new IsCoveredNode(_target, transform);
+        IsCoveredNode isCoveredNode = new IsCoveredNode(_target, transform,this);
         ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
         RangeNode chasingRangeNode = new RangeNode(_chaseRange, _target, transform);
-
         RangeNode shootingRangeNode = new RangeNode(_shootingRange, _target, transform);
         ShootNode shootNode = new ShootNode(_navmeshAgent, this, _target);
 

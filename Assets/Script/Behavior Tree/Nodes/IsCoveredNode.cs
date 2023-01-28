@@ -6,11 +6,13 @@ public class IsCoveredNode : Node
 {
     private Transform _target;
     private Transform _origin;
+    private IAI _enemyAI;
 
-    public IsCoveredNode(Transform target, Transform origin)
+    public IsCoveredNode(Transform target, Transform origin, IAI enemyAI)
     {
         _target = target;
         _origin = origin;
+        _enemyAI = enemyAI;
     }
 
     public override NodeState Evaluate()
@@ -20,6 +22,7 @@ public class IsCoveredNode : Node
         {
             if(hit.collider.transform != _target) 
             {
+                _enemyAI.SetIdle();
                 return NodeState.SUCCESS;
             }
         }
