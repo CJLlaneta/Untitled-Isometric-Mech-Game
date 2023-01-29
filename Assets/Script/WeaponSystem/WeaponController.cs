@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
 
-    [SerializeField] WeaponSystem _weaponSystem;
+    //[SerializeField] WeaponSystem _weaponSystem;
+    [SerializeField] BodyController _bodyController;
     [SerializeField] PlayerInput _playerInput;
     [SerializeField] GameObject _owner;
     [SerializeField] PlayerAim _playerAim;
@@ -22,7 +23,8 @@ public class WeaponController : MonoBehaviour
     }
     void InitializeProperties()
     {
-        _weaponSystem.InitializeProperties(_owner);
+        _bodyController.weaponSystem.InitializeProperties(_owner);
+       // _weaponSystem.InitializeProperties(_owner);
     }
     void OnEnable()
     {
@@ -42,14 +44,16 @@ public class WeaponController : MonoBehaviour
     {
         if (_playerControls.Player.FiringRight.IsPressed())
         {
-           if( _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)) 
+            //_bodyController.FiringWeapon(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)
+            // _weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)
+           if (_bodyController.FiringWeapon(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)) 
            {
                 _recoilShake.Recoil();
            }
         }
         if (_playerControls.Player.FiringLeft.IsPressed())
         {
-            if (_weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.left, _playerAim.lastPoint))
+            if (_bodyController.FiringWeapon(WeaponHandler.WeaponLocation.left, _playerAim.lastPoint))
             {
                 _recoilShake.Recoil();
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class BodyController : MonoBehaviour
 {
@@ -13,16 +14,26 @@ public class BodyController : MonoBehaviour
 
     [SerializeField] float _upperBodyRotationSpeed = 5;
     [SerializeField] float _chasisRotationSpeed = 5;
-
-
+    
     [SerializeField] SoundController _chasisSoundController;
     [SerializeField] SoundController _upperBodyRotationSoundController;
-  
+    public WeaponSystem weaponSystem;
 
     private float _currentMovementSpeed = 0;
     private void Start()
     {
         Initialized();
+    }
+
+    public void SetTheWeaponOwner(GameObject owner) 
+    {
+        weaponSystem.InitializeProperties(owner);
+    }
+
+    public bool FiringWeapon(WeaponHandler.WeaponLocation weaponLocation, Vector3 aimPoint) 
+    {
+       return weaponSystem.FireWeapons(weaponLocation, aimPoint);
+        //_weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)
     }
     private void Initialized()
     {

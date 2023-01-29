@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,11 +28,19 @@ public class EnemyHuman : MonoBehaviour,IAI
     {
         Initialized();
     }
-
+    private void GetTheMapCover() 
+    {
+        GameObject[] cov = GameObject.FindGameObjectsWithTag("CoverSystem");
+        _covers.Clear();
+        foreach (GameObject g in cov) 
+        {
+            _covers.Add(g.GetComponent<Cover>());
+        }
+    }
     private void Initialized() 
     {
+        GetTheMapCover();
         _navmeshAgent.speed = _movespeed;
-     
         ConstructAITree();
     }
     void OnDrawGizmosSelected()
@@ -63,8 +72,6 @@ public class EnemyHuman : MonoBehaviour,IAI
         Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
         Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
         
-        
-        //_topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence,  chaseSequence,   });
         _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence, chaseSequence, });
     }
     public Transform GetTheBestCover() 
@@ -76,6 +83,14 @@ public class EnemyHuman : MonoBehaviour,IAI
         _bestConverSpot = cover;
     }
 
+    public bool IsOnCriticalLevel() 
+    {
+        return false;
+    }
+    public float GetHealth()
+    {
+        return 1;
+    }
     public void Shoot() 
     {
         if (!_isOnReload)
@@ -104,7 +119,10 @@ public class EnemyHuman : MonoBehaviour,IAI
     {
         AnimationManager.Instance.SetAnimationBoolean(_animator, "Running", true);
     }
+    public void OnAim()
+    {
 
+    }
 
     public bool GetReloadState() 
     {

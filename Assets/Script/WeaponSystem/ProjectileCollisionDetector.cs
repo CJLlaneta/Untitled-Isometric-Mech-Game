@@ -54,8 +54,12 @@ public class ProjectileCollisionDetector : MonoBehaviour
     }
     private void ApplyConditions(string tag)
     {
-        HitVFX();
+       
         CollisionTagProperties colProperties = _tagCollisions.CollisionTag.Single(col => col.TagName == tag);
+        if (!colProperties.PassThrough) 
+        {
+            HitVFX();
+        }
         if (colProperties.HasDamageSystem) 
         {
             ApplyDamage();

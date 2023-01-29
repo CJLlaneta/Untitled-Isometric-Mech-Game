@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - DestructableObject
   - EnemyHuman
+  - CoverSystem
   layers:
   - Default
   - TransparentFX
