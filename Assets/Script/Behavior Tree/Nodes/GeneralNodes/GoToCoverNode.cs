@@ -21,13 +21,13 @@ public class GoToCoverNode : Node
      
         if (cover == null) 
         {
-            _enemyAI.OnMove();
             return NodeState.FAILURE;
         }
         float distance = Vector3.Distance(cover.position, _navMeshAgent.transform.position);
 
         if (distance > 0.2f) 
         {
+            //Debug.Log(cover.name + " is the best cover");
             _enemyAI.OnMove();
             _navMeshAgent.isStopped = false;
             _navMeshAgent.SetDestination(cover.position);

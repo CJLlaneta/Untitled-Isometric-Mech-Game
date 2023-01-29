@@ -14,14 +14,17 @@ public class DamageSystem : MonoBehaviour
     public void ApplyDamage(float Damage) 
     {
         _hp -= Damage;
-        if (_hp <= 0) 
-        {
-            OnBreakEvent?.Invoke();
-        }
-        if (OnDamageEvent != null) 
+        if (OnDamageEvent != null)
         {
             OnDamageEvent.Invoke(healthValue, _hp);
         }
+        if (_hp <= 0) 
+        {
+            OnBreakEvent?.Invoke();
+            gameObject.tag = "Untagged";
+            Destroy(this);
+        }
+
     }
 
     public float GetCurrentHP()

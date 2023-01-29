@@ -44,6 +44,7 @@ public class DamageController : MonoBehaviour
     {
         ShowDestructionProps(_destructionProfile.DestroyedEffects);
         ShowDestructionProps(_destructionProfile.DestroyedPrefabs);
+ 
         HideObject();
 
     }

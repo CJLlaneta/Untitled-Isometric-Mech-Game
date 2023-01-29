@@ -7,6 +7,8 @@ public class BodyController : MonoBehaviour
 {
     [SerializeField] GameObject _upperBody;
     [SerializeField] GameObject _chasis;
+    [SerializeField] GameObject _cockPit;
+
     [SerializeField] Animator _animator;
 
     [SerializeField] float _movementSpeed = 10;
@@ -35,6 +37,25 @@ public class BodyController : MonoBehaviour
        return weaponSystem.FireWeapons(weaponLocation, aimPoint);
         //_weaponSystem.FireWeapons(WeaponHandler.WeaponLocation.right, _playerAim.lastPoint)
     }
+
+    public void ShutDown() 
+    {
+        CockPitShutDown();
+        IsMoving(false);
+        _animator.enabled = false;
+        Destroy(this);
+    }
+    private void CockPitShutDown()
+    {
+        Renderer renderer = _cockPit.GetComponent<Renderer>();
+        Material[] _mats = renderer.materials;
+        foreach (Material m in _mats) 
+        {
+            //Debug.Log(m.name);
+            m.SetColor("_EmissionColor", Color.black);
+        }
+    }
+
     private void Initialized()
     {
         _currentMovementSpeed = _movementSpeed;

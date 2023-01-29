@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: Mech
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 5546369314806598589, guid: a608dbb214202be4682a2dacd436688a, type: 3}
+  _destroyedEffects:
+  - {fileID: 2300078960945423154, guid: 611d135340fc1b4428249c59dc66fc11, type: 3}

@@ -159,6 +159,7 @@ public class EnemyHuman : MonoBehaviour,IAI
         _cntExecute += 1 * Time.deltaTime;
         if (_cntExecute >= 1) 
         {
+            _cntExecute = 0;
             NodeEvaluation();
         }
         ReloadCoolDown();

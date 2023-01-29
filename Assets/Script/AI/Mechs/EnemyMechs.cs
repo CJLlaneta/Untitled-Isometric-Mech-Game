@@ -72,7 +72,13 @@ public class EnemyMechs : MonoBehaviour,IAI
 
         _brainNode = new Selector(new List<Node> { neutralSequence, shootSequence, chaseSequence, });
     }
+    public void ShutDownTheMech() 
+    {
+        _bodyController.ShutDown();
 
+        _navmeshAgent.enabled = false;
+        this.enabled = false;
+    }
     float _cntBrainInterval = 0;
     private void EvaluatateBrain() 
     {
