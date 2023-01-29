@@ -17,6 +17,8 @@ public class EnemyMechs : MonoBehaviour,IAI
     [SerializeField] List<Cover> _covers = new List<Cover>();
     [SerializeField] private float _chaseRange;
     [SerializeField] private float _shootingRange;
+    [SerializeField] Transform _sightLocation;
+    [SerializeField] GameObject _parentOwner;
     private Transform _bestCover;
     Vector3 _point = Vector3.zero;
 
@@ -45,36 +47,30 @@ public class EnemyMechs : MonoBehaviour,IAI
     private void Initialized() 
     {
         _navmeshAgent.speed = _bodyController.MovementSpeed;
-        _bodyController.SetTheWeaponOwner(gameObject);
+        _bodyController.SetTheWeaponOwner(_parentOwner);
         GetTheMapCover();
         ConstructBrainNode();
     }
 
     private void ConstructBrainNode() 
     {
-        IsCoverAvailableNode coverAvailableNode = new IsCoverAvailableNode(_covers, _target, this);
-        GoToCoverNode goToCoverNode = new GoToCoverNode(_navmeshAgent, this);
         RangeNode _alertRange = new RangeNode(_chaseRange, _target, transform);
         Inverter alertNode = new Inverter(_alertRange);
         IdleMechNode idleNode = new IdleMechNode(_navmeshAgent, this);
-        HealthDamageNode HealthDamageNode = new HealthDamageNode(this);
-        IsCoveredNode isCoveredNode = new IsCoveredNode(_target, transform, this);
         ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
         RangeAimingNode chasingRangeNode = new RangeAimingNode(_chaseRange, _target, transform,this);
         RangeAimingNode shootingRangeNode = new RangeAimingNode(_shootingRange, _target, transform, this);
-        ShootMechNode shootNode = new ShootMechNode(_navmeshAgent, this, _target);
+        ShootOnRunMechNode shootMoveNode = new ShootOnRunMechNode(_navmeshAgent, this);
+        ShootMechNode shootHoldNode = new ShootMechNode(_navmeshAgent, this,_target);
+        IsOnSightNode isOnSightNode = new IsOnSightNode(_target, _sightLocation);
 
+        Sequence SeekAndFire = new Sequence(new List<Node> { isOnSightNode, shootingRangeNode });
         Sequence neutralSequence = new Sequence(new List<Node> { alertNode, idleNode });
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
-        Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
+        Sequence shootSequence = new Sequence(new List<Node> { SeekAndFire, shootHoldNode });
 
 
-        Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
-        Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
-        Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
-        Sequence criticalAndCoverSequence = new Sequence(new List<Node> { HealthDamageNode, tryToCoverSelector });
-        //neutralSequence,  criticalAndCoverSequence, shootSequence,
-        _brainNode = new Selector(new List<Node> { criticalAndCoverSequence, shootSequence, chaseSequence, });
+        _brainNode = new Selector(new List<Node> { neutralSequence, shootSequence, chaseSequence, });
     }
 
     float _cntBrainInterval = 0;
@@ -103,18 +99,22 @@ public class EnemyMechs : MonoBehaviour,IAI
     {
         bool _ret = false;
         float _currentHP = GetHealth();
-        float _per = _criticalLevelPercentage / _currentHP;
-        float _criValue = _currentHP * _per;
-        if (GetHealth() <= _criValue) 
+        float _per = _criticalLevelPercentage / 100;
+        float _criValue = GetMaxHP() * _per;
+       // Debug.Log("HP: " + GetHealth() + " crit:" + _criValue);
+        if (_currentHP <= _criValue) 
         {
             return true;
         }
         return _ret;
     }
-
+    private float GetMaxHP() 
+    {
+        return _damageController.GetMaxHealth();
+    }
     public float GetHealth() 
     {
-        return _damageController.GetTotalHealth();
+        return _damageController.GetCurrentHealth();
     }
     float _cntShootInterval = 0;
     public void Shoot() 
@@ -154,8 +154,8 @@ public class EnemyMechs : MonoBehaviour,IAI
     {
         return _bestCover;
     }
-    public void SetBestCoverSpot(Transform cover)
+    public void SetBestCoverSpot(Transform bestPosition)
     {
-        _bestCover = cover;
+        _bestCover = bestPosition;
     }
 }

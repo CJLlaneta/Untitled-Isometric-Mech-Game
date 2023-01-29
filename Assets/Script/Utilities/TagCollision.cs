@@ -16,4 +16,11 @@ public class CollisionTagProperties
     public string TagName = "Default";
     public bool PassThrough = false;
     public bool HasDamageSystem = false;
+    public PhysicalProperties PhysicalProperty = PhysicalProperties.none;
+}
+
+public enum PhysicalProperties
+{
+    none,
+    metal
 }

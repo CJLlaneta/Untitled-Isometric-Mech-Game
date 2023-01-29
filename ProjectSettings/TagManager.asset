@@ -8,6 +8,7 @@ TagManager:
   - DestructableObject
   - EnemyHuman
   - CoverSystem
+  - Armor
   layers:
   - Default
   - TransparentFX

@@ -170,6 +170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Legs_Heavy_lvl1
       objectReference: {fileID: 0}
+    - target: {fileID: 2366188197947401394, guid: c72cb87e4b0f0614a9147174ed9a7f58,
+        type: 3}
+      propertyPath: m_TagString
+      value: Armor
+      objectReference: {fileID: 0}
     - target: {fileID: 2366188197947898000, guid: c72cb87e4b0f0614a9147174ed9a7f58,
         type: 3}
       propertyPath: m_RootOrder
@@ -245,6 +250,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3902462971762057802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1656821931290019576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2366188197947401394, guid: c72cb87e4b0f0614a9147174ed9a7f58,
+    type: 3}
+  m_PrefabInstance: {fileID: 3902462971762057802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3816376517668117249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656821931290019576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.79, y: 2.858248, z: 1.49}
+  m_Center: {x: -0.01455219, y: 1.347613, z: 0.12945771}
+--- !u!114 &4718912275568707187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656821931290019576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fdc73f8cc0fc947afda323dc96bb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthValue: 2500
 --- !u!1 &1656821931290019578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2366188197947401392, guid: c72cb87e4b0f0614a9147174ed9a7f58,
@@ -414,6 +451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shoulders_Heavy_lvl1
       objectReference: {fileID: 0}
+    - target: {fileID: 2336072852091715335, guid: 881a9d7820dec084b877c8b0bcc6389b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Armor
+      objectReference: {fileID: 0}
     - target: {fileID: 6321801700612653694, guid: 881a9d7820dec084b877c8b0bcc6389b,
         type: 3}
       propertyPath: _animator
@@ -476,6 +518,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7cd24f2a42ad7428294f9ba936b030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1604179236292642400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2336072852091715335, guid: 881a9d7820dec084b877c8b0bcc6389b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3902462973039081831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1485492484116358336
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604179236292642400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 21f1c5f837cb97d47866a522e0e805e4, type: 3}
+--- !u!114 &4749478130170312051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604179236292642400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fdc73f8cc0fc947afda323dc96bb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthValue: 2500
 --- !u!1 &1604179236292642402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2336072852091715333, guid: 881a9d7820dec084b877c8b0bcc6389b,

@@ -18,11 +18,14 @@ public class GoToCoverNode : Node
     public override NodeState Evaluate()
     {
         Transform cover = _enemyAI.GetTheBestCover();
+     
         if (cover == null) 
         {
+            _enemyAI.OnMove();
             return NodeState.FAILURE;
         }
         float distance = Vector3.Distance(cover.position, _navMeshAgent.transform.position);
+
         if (distance > 0.2f) 
         {
             _enemyAI.OnMove();

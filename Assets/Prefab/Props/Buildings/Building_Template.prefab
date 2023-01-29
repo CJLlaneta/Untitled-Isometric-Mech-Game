@@ -147,12 +147,13 @@ GameObject:
   - component: {fileID: 4602893630511832499}
   - component: {fileID: 4602893630511235121}
   - component: {fileID: 6277670547270155621}
+  - component: {fileID: 7825232851000093195}
   m_Layer: 0
   m_Name: Building_Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4602893630513109647
 Transform:
@@ -235,6 +236,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CutCascades: 2
   ExplodeForce: 180
+--- !u!208 &7825232851000093195
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602893630513007271}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 8.043, y: 12.625001, z: 8.062}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -7.5290003, y: 12.625001, z: -7.5000005}
+  m_TimeToStationary: 0.5
 --- !u!1 &4797506329792684215
 GameObject:
   m_ObjectHideFlags: 0

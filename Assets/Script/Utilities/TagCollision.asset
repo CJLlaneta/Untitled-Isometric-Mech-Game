@@ -16,9 +16,16 @@ MonoBehaviour:
   - TagName: Untagged
     PassThrough: 0
     HasDamageSystem: 0
+    PhysicalProperty: 0
   - TagName: DestructableObject
     PassThrough: 0
     HasDamageSystem: 1
+    PhysicalProperty: 0
   - TagName: EnemyHuman
     PassThrough: 1
     HasDamageSystem: 1
+    PhysicalProperty: 0
+  - TagName: Armor
+    PassThrough: 0
+    HasDamageSystem: 1
+    PhysicalProperty: 1

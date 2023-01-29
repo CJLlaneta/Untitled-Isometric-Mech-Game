@@ -11,6 +11,8 @@ public class ProjectileCollisionDetector : MonoBehaviour
 
     [SerializeField] string _hitID = "Caliber_Hit";
 
+    [SerializeField] string _metalID = "Armor_Hit";
+
 
     public void SetTheOwner(GameObject owner)
     {
@@ -37,15 +39,15 @@ public class ProjectileCollisionDetector : MonoBehaviour
             else 
             {
                 //By Default Destroy this object
-                HitVFX();
+                HitVFX(_hitID);
                 gameObject.SetActive(false);
             }
         }
     }
     GameObject _hitVFX;
-    private void HitVFX()
+    private void HitVFX(string HitID)
     {
-        _hitVFX = ObjectPoolingManager.Instance.SpawnFromPool(_hitID, transform.position, Quaternion.identity);
+        _hitVFX = ObjectPoolingManager.Instance.SpawnFromPool(HitID, transform.position, Quaternion.identity);
         _hitVFX.transform.LookAt(transform.position);
     }
     private void ApplyDamage() 
@@ -58,12 +60,24 @@ public class ProjectileCollisionDetector : MonoBehaviour
         CollisionTagProperties colProperties = _tagCollisions.CollisionTag.Single(col => col.TagName == tag);
         if (!colProperties.PassThrough) 
         {
-            HitVFX();
+       
+            if (colProperties.PhysicalProperty == PhysicalProperties.metal)
+            {
+                //Debug.Log(tag);
+                HitVFX(_metalID);
+            }
+            else 
+            {
+                HitVFX(_hitID);
+            }
+
         }
         if (colProperties.HasDamageSystem) 
         {
             ApplyDamage();
         }
+
+    
         gameObject.SetActive(false);
     }
     private bool IsWithinTag(string tag)
