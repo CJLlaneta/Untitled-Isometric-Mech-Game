@@ -288,7 +288,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d14b282d850b6948abb22e63bda29ce, type: 2}
+  - {fileID: 2100000, guid: 404dd5cc6556c124193d26d3b2587ff3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1910,6 +1910,7 @@ MonoBehaviour:
     type: 2}
   _objectToDestory:
   - {fileID: 610939226}
+  _objectToExlude: []
   _damageRespawnOffSet: {x: 0, y: 0, z: 0}
 --- !u!1001 &661016582
 PrefabInstance:
@@ -2244,7 +2245,7 @@ PrefabInstance:
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.34
+      value: 23.45
       objectReference: {fileID: 0}
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}
@@ -2572,7 +2573,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29048
+  m_Name: pb_Mesh29044
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2896,7 +2897,7 @@ PrefabInstance:
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.63
+      value: -21.5
       objectReference: {fileID: 0}
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}
@@ -2906,7 +2907,7 @@ PrefabInstance:
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.95
+      value: 30.63
       objectReference: {fileID: 0}
     - target: {fileID: 4602893630513109647, guid: 672a3a580c6a43b4386d4d34afb7708f,
         type: 3}

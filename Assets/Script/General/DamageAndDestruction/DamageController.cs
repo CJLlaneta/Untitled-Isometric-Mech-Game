@@ -7,6 +7,7 @@ public class DamageController : MonoBehaviour
     [SerializeField] DamageSystem _damageSystem;
     [SerializeField] DestructionProfile _destructionProfile;
     [SerializeField] List<GameObject> _objectToDestory;
+    [SerializeField] List<GameObject> _objectToExlude;
     [SerializeField] Vector3 _damageRespawnOffSet = Vector3.zero;
     void Start()
     {
@@ -40,11 +41,20 @@ public class DamageController : MonoBehaviour
         }
     }
 
+    private void ExcludeObject()
+    {
+        foreach (GameObject g in _objectToExlude)
+        {
+            g.transform.parent = null;
+
+        }
+    }
+
     private void OnBreak() 
     {
         ShowDestructionProps(_destructionProfile.DestroyedEffects);
         ShowDestructionProps(_destructionProfile.DestroyedPrefabs);
- 
+        ExcludeObject();
         HideObject();
 
     }
