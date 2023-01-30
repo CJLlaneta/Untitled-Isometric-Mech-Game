@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5336381636929680703}
   - component: {fileID: 5336381636929680673}
   - component: {fileID: 5336381636929680702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5336381637544159428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount_Weapon_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5336381637544159430}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount_Weapon_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5336381637544159432}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount_backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5336381637544159434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mount_Weapon_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5336381637544159436}
   - component: {fileID: 5336381637534566188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit_Heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 5336381637544159438}
   - component: {fileID: 5336381637540767980}
   - component: {fileID: 5336381637541866028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_Cockpit_heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,3 +29,7 @@ MonoBehaviour:
     PassThrough: 0
     HasDamageSystem: 1
     PhysicalProperty: 1
+  - TagName: Player
+    PassThrough: 1
+    HasDamageSystem: 0
+    PhysicalProperty: 0

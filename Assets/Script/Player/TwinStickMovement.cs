@@ -27,6 +27,7 @@ public class TwinStickMovement : MonoBehaviour
     void Awake()
     {
         _characterController = gameObject.GetComponent<CharacterController>();
+        _characterController.detectCollisions = false;
         _playerControls = new InputControls();
         _playerInput = GetComponent<PlayerInput>();
     }

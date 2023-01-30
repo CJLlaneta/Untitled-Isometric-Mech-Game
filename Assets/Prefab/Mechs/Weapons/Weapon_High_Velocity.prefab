@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3483509207539438266}
   - component: {fileID: 3483509207536538248}
   - component: {fileID: 3483509207537668168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_barrel_base_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3483509207539438264}
   - component: {fileID: 3483509207536538250}
   - component: {fileID: 3483509207537668170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_barrel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_base_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 3483509207539438250}
   - component: {fileID: 3483509207547133258}
   - component: {fileID: 3483509207547133259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon_High_Velocity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_base_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 3483509207539438246}
   - component: {fileID: 3483509207536538242}
   - component: {fileID: 3483509207537668162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 3483509207539438268}
   - component: {fileID: 3483509207536538252}
   - component: {fileID: 3483509207537668172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_barrel_base_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 3483509207539438258}
   - component: {fileID: 3483509207536538254}
   - component: {fileID: 3483509207537668174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_barrel_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_end_2
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -693,7 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483509207539438242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_end_1
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 8791195774388792121}
   - component: {fileID: 8819823543505012647}
   - component: {fileID: 8809323827106765385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Turret_Barrel_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 8948812813667322645}
   - component: {fileID: 8948812813667322643}
   - component: {fileID: 8948812813667322642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Turret_Barrel_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

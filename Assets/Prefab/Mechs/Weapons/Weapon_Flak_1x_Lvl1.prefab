@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7293745925955354662}
   - component: {fileID: 7293745925958254604}
   - component: {fileID: 7293745925957124812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293745925955354664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 7293745925955354658}
   - component: {fileID: 7293745925958254606}
   - component: {fileID: 7293745925957124814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Geom_barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293745925955354660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293745925955354666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel_base_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7293745925955354668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 7293745925955354670}
   - component: {fileID: 7293745925947879374}
   - component: {fileID: 7293745925955230379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon_Flak_1x_Lvl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
