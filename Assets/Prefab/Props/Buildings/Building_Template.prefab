@@ -411,7 +411,7 @@ PrefabInstance:
     - target: {fileID: 4114280797463091070, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
       propertyPath: m_Name
-      value: HexagonGroup
+      value: HexagonGroup1
       objectReference: {fileID: 0}
     - target: {fileID: 4321652244444016054, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 4321652244444016054, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.7
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 4321652244444016054, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
@@ -446,7 +446,7 @@ PrefabInstance:
     - target: {fileID: 4321652244444016054, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4321652244444016054, guid: c12420955ae1ffc43918dbffbee0e867,
         type: 3}
