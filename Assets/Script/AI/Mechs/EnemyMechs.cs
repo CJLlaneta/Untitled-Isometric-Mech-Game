@@ -8,6 +8,7 @@ public class EnemyMechs : MonoBehaviour,IAI
 {
     [SerializeField] DamageControllerMech _damageController;
     [SerializeField] float _criticalLevelPercentage = 60;
+    [SerializeField] Vector3 _shootOffset = Vector3.zero;
     [SerializeField] float _brainInverval = 1f;
     [SerializeField] float _shootInterval = 1;
     [SerializeField] BodyController _bodyController;
@@ -21,6 +22,7 @@ public class EnemyMechs : MonoBehaviour,IAI
     [SerializeField] GameObject _parentOwner;
     private Transform _bestCover;
     Vector3 _point = Vector3.zero;
+    private bool _isEngage = false;
 
     void Start()
     {
@@ -54,23 +56,29 @@ public class EnemyMechs : MonoBehaviour,IAI
 
     private void ConstructBrainNode() 
     {
-        RangeNode _alertRange = new RangeNode(_chaseRange, _target, transform);
-        Inverter alertNode = new Inverter(_alertRange);
+
+        IsEngageModeNode isInEngageNode = new IsEngageModeNode(this);
+        Inverter isInEngageINode = new Inverter(isInEngageNode);
         IdleMechNode idleNode = new IdleMechNode(_navmeshAgent, this);
-        ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
-        RangeAimingNode chasingRangeNode = new RangeAimingNode(_chaseRange, _target, transform,this);
+        RangeEngageNode rangeEngageNode = new RangeEngageNode(_chaseRange, _target, transform, this);
+        //ChaseNode chaseNode = new ChaseNode(_target, _navmeshAgent, this);
+        ChaseTactical chaseTacticalNode = new ChaseTactical(_navmeshAgent,_target, (_shootingRange * 0.9f), this);
+        //RangeAimingNode chasingRangeNode = new RangeAimingNode(_chaseRange, _target, transform,this);
         RangeAimingNode shootingRangeNode = new RangeAimingNode(_shootingRange, _target, transform, this);
         ShootOnRunMechNode shootMoveNode = new ShootOnRunMechNode(_navmeshAgent, this);
-        ShootMechNode shootHoldNode = new ShootMechNode(_navmeshAgent, this,_target);
+        //ShootMechNode shootHoldNode = new ShootMechNode(_navmeshAgent, this,_target);
         IsOnSightNode isOnSightNode = new IsOnSightNode(_target, _sightLocation);
 
-        Sequence SeekAndFire = new Sequence(new List<Node> { isOnSightNode, shootingRangeNode });
-        Sequence neutralSequence = new Sequence(new List<Node> { alertNode, idleNode });
-        Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
-        Sequence shootSequence = new Sequence(new List<Node> { SeekAndFire, shootHoldNode });
+        //Sequence SeekAndFire = new Sequence(new List<Node> { isOnSightNode, shootingRangeNode });
+        Sequence neutralSequence = new Sequence(new List<Node> { isInEngageINode, rangeEngageNode, idleNode });
+        //Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseTacticalNode });
+        //Sequence shootSequence = new Sequence(new List<Node> { SeekAndFire, shootHoldNode });
+        Sequence shootMoveSequence = new Sequence(new List<Node> { isOnSightNode, shootingRangeNode,shootMoveNode });
+        Sequence chaseNShootSequence = new Sequence(new List<Node> { isInEngageNode, chaseTacticalNode, shootMoveSequence });
+        //Sequence chaseNShootSequence = new Sequence(new List<Node> { chasingRangeNode, chaseTacticalNode, shootMoveSequence });
 
 
-        _brainNode = new Selector(new List<Node> { neutralSequence, shootSequence, chaseSequence, });
+        _brainNode = new Selector(new List<Node> { neutralSequence, chaseNShootSequence, });
     }
     public void ShutDownTheMech() 
     {
@@ -123,15 +131,27 @@ public class EnemyMechs : MonoBehaviour,IAI
         return _damageController.GetCurrentHealth();
     }
     float _cntShootInterval = 0;
+    Vector3 _targetPoisition;
     public void Shoot() 
     {
         _cntShootInterval += 1 * Time.deltaTime;
         if (_cntShootInterval >= _shootInterval)
         {
             _cntShootInterval = 0;
-            _bodyController.FiringWeapon(WeaponHandler.WeaponLocation.right, _target.position);
-            _bodyController.FiringWeapon(WeaponHandler.WeaponLocation.left, _target.position);
+            //_shootXOffset
+            _targetPoisition = _target.position;
+            _targetPoisition.y += _shootOffset.y;
+            _bodyController.FiringWeapon(WeaponHandler.WeaponLocation.right, _targetPoisition);
+            _bodyController.FiringWeapon(WeaponHandler.WeaponLocation.left, _targetPoisition);
         }
+    }
+    public void SetEngageMode(bool status) 
+    {
+        _isEngage = status;
+    }
+    public bool IsInEngageMode() 
+    {
+        return _isEngage;
     }
     public void SetIdle() 
     {

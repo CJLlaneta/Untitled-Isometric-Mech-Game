@@ -18,6 +18,7 @@ public class EnemyHumanCivilian : MonoBehaviour,IAI
  
     private Transform _bestConverSpot;
     private bool _isOnReload = false;
+    private bool _isEngage = false;
 
 
     void Start()
@@ -78,7 +79,14 @@ public class EnemyHumanCivilian : MonoBehaviour,IAI
 
 
     }
-
+    public void SetEngageMode(bool status)
+    {
+        _isEngage = status;
+    }
+    public bool IsInEngageMode()
+    {
+        return _isEngage;
+    }
 
     public void SetIdle() 
     {

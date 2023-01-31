@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2949712962597906978}
   - component: {fileID: 2251984372373415303}
   - component: {fileID: 4081475754613576013}
-  - component: {fileID: -615223138708224778}
   m_Layer: 0
   m_Name: Floor_Road
   m_TagString: Untagged
@@ -84,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-615223138708224778
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2568367779400069272}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.043301284, y: 0.050000023, z: 0.0025000009}
-  m_Center: {x: 0.0000000012664334, y: -3.3933986e-10, z: -0.0012500003}

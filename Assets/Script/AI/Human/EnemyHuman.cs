@@ -19,7 +19,7 @@ public class EnemyHuman : MonoBehaviour,IAI
     [SerializeField] private Transform _target;
     [SerializeField] private Animator _animator;
     [SerializeField] List<Cover> _covers = new List<Cover>();
- 
+    private bool _isEngage = false;
     private Transform _bestConverSpot;
 
    
@@ -90,6 +90,15 @@ public class EnemyHuman : MonoBehaviour,IAI
     public float GetHealth()
     {
         return 1;
+    }
+
+   public void SetEngageMode(bool status)
+    {
+        _isEngage = status;
+    }
+    public bool IsInEngageMode()
+    {
+        return _isEngage;
     }
     public void Shoot() 
     {

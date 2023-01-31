@@ -12,6 +12,8 @@ public interface IAI
     void SetIdle();
     void OnMove();
 
+    void SetEngageMode(bool status);
+    bool IsInEngageMode();
     void OnAim();
     Transform GetTheBestCover();
     void SetBestCoverSpot(Transform cover);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class DamageControllerMech : MonoBehaviour
 {
@@ -16,7 +17,15 @@ public class DamageControllerMech : MonoBehaviour
     private void DamageReceive(float MaxHP, float CurrentHP)
     {
         _currentHealth = CurrentHP;
+        if (!_EnemyMechs.IsInEngageMode())
+        {
+            SetAgressive();
+        }
 
+    }
+    private void SetAgressive() 
+    {
+        _EnemyMechs.SetEngageMode(true);
     }
     private void ShutDownMech() 
     {

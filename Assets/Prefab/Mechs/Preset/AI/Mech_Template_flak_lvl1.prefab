@@ -710,6 +710,11 @@ PrefabInstance:
       objectReference: {fileID: 5985497360878919457}
     - target: {fileID: 6321801700612653694, guid: 881a9d7820dec084b877c8b0bcc6389b,
         type: 3}
+      propertyPath: _ignoreOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321801700612653694, guid: 881a9d7820dec084b877c8b0bcc6389b,
+        type: 3}
       propertyPath: weaponLocation
       value: 0
       objectReference: {fileID: 0}
@@ -723,6 +728,11 @@ PrefabInstance:
       propertyPath: _animator
       value: 
       objectReference: {fileID: 5985497361683111642}
+    - target: {fileID: 7706981796918251446, guid: 881a9d7820dec084b877c8b0bcc6389b,
+        type: 3}
+      propertyPath: _ignoreOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7706981796918251446, guid: 881a9d7820dec084b877c8b0bcc6389b,
         type: 3}
       propertyPath: weaponLocation
@@ -1011,6 +1021,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2482032529960634998, guid: 3784b11f1763671409e1709970663419,
+        type: 3}
+      propertyPath: _ignoreCollider.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482032529960634998, guid: 3784b11f1763671409e1709970663419,
+        type: 3}
+      propertyPath: _ignoreCollider.Array.data[0]
+      value: 
+      objectReference: {fileID: 1091876363989703612}
     - target: {fileID: 6813497345375077153, guid: 3784b11f1763671409e1709970663419,
         type: 3}
       propertyPath: m_Name
@@ -1085,6 +1105,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2482032529960634998, guid: 3784b11f1763671409e1709970663419,
+        type: 3}
+      propertyPath: _ignoreCollider.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482032529960634998, guid: 3784b11f1763671409e1709970663419,
+        type: 3}
+      propertyPath: _ignoreCollider.Array.data[0]
+      value: 
+      objectReference: {fileID: 1091876363989703612}
     - target: {fileID: 6813497345375077153, guid: 3784b11f1763671409e1709970663419,
         type: 3}
       propertyPath: m_Name

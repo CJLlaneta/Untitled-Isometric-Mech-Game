@@ -60,7 +60,6 @@ public class ProjectileCollisionDetector : MonoBehaviour
         CollisionTagProperties colProperties = _tagCollisions.CollisionTag.Single(col => col.TagName == tag);
         if (!colProperties.PassThrough) 
         {
-       
             if (colProperties.PhysicalProperty == PhysicalProperties.metal)
             {
                 //Debug.Log(tag);
@@ -70,15 +69,12 @@ public class ProjectileCollisionDetector : MonoBehaviour
             {
                 HitVFX(_hitID);
             }
-
+            gameObject.SetActive(false);
         }
         if (colProperties.HasDamageSystem) 
         {
             ApplyDamage();
         }
-
-    
-        gameObject.SetActive(false);
     }
     private bool IsWithinTag(string tag)
     {
