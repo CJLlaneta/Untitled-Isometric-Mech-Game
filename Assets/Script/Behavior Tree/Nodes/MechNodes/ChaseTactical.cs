@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UIElements;
 
 
+
 public class ChaseTactical : Node
 {
     private NavMeshAgent _navmeshAgent;
@@ -25,35 +26,44 @@ public class ChaseTactical : Node
         NavMesh.SamplePosition(position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas);
         return hit.hit;
     }
+    Vector3 randomLocation = Vector3.zero;
+    NavMeshHit _navhit;
+    Vector3 targetPosition;
     private Vector3 SetRandomDestination() 
     {
-        //Vector3 _flee = _navmeshAgent.transform.position - _target.position + Random.onUnitSphere;
-        //NavMeshHit hit;
-        //if (NavMesh.SamplePosition(_navmeshAgent.transform.position + _flee, out hit, _maximumDistance, NavMesh.AllAreas))
+        //do
         //{
-        //    return hit.position;
+        //    randomLocation = _target.position + Random.onUnitSphere * _maximumDistance;
+        //    randomLocation.y = _target.transform.position.y;
+        //} while (!IsPositionReachable(randomLocation));
+        //randomLocation = Random.onUnitSphere *Random.Range(_maximumDistance * 0.5f, _maximumDistance);
+        //if (NavMesh.SamplePosition(_target.position + randomLocation, out _navhit, 5f, NavMesh.AllAreas))
+        //{
+        //    return _navhit.position;
         //}
-        //return _navmeshAgent.transform.position - _target.position;
-        Vector3 randomLocation = _target.transform.position + Random.onUnitSphere * _maximumDistance;
-        randomLocation.y = _target.transform.position.y;
-        do
+        //return _target.position + Random.onUnitSphere * _maximumDistance;
+
+        float randomDistance = Random.Range(_maximumDistance * 0.5f, _maximumDistance);
+        randomLocation = Random.onUnitSphere;
+        targetPosition = _target.position + randomLocation * randomDistance;
+        if (NavMesh.SamplePosition(targetPosition, out _navhit, randomDistance, NavMesh.AllAreas))
         {
-            randomLocation = _target.transform.position + Random.onUnitSphere * _maximumDistance;
-            randomLocation.y = _target.transform.position.y;
-        } while (!IsPositionReachable(randomLocation));
-        //return _navmeshAgent.transform.position - _target.position;
-        return randomLocation;
+            return _navhit.position;
+        }
+        return _target.position + Random.onUnitSphere * _maximumDistance;
     }
+    float _cntCheck = 0;
     public override NodeState Evaluate() 
     {
-        
+        _cntCheck += 1 * Time.deltaTime;
         if (engageDirection == Vector3.zero) 
         {
             engageDirection = SetRandomDestination();
         }
-        else if (Vector3.Distance(engageDirection, _navmeshAgent.transform.position) <= (_maximumDistance/2)) 
+        else if (_cntCheck >=3) 
         {
             engageDirection = SetRandomDestination();
+            _cntCheck = 0;
         }
         _enemyAI.OnAim();
         _enemyAI.OnMove();
