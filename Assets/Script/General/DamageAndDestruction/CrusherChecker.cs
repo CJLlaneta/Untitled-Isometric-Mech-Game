@@ -8,26 +8,34 @@ public class CrusherChecker : MonoBehaviour
 {
     [SerializeField] TagCollision _tagCollisions;
     [SerializeField] float _crushMass = 100;
-    [SerializeField] List<Collider> _ignoreCollider = new List<Collider>();
+    //[SerializeField] List<Collider> _ignoreCollider = new List<Collider>();
     private void OnTriggerEnter(Collider other)
     {
-        if (IsNotInIgnore(other)) 
+        if (!CheckIfSamePart(other)) 
         {
             _hittedObject = other.gameObject;
             ApplyConditions(_hittedObject.tag);
         }
 
     }
-
-    private bool IsNotInIgnore(Collider other) 
+    private bool CheckIfSamePart(Collider other) 
     {
-        bool _ret = true;
-        if (_ignoreCollider.Contains(other)) 
+        bool _ret = false;
+        if (other.transform.root == transform.root) 
         {
-            return false;
+            return true;
         }
         return _ret;
     }
+    //private bool IsNotInIgnore(Collider other) 
+    //{
+    //    bool _ret = true;
+    //    if (_ignoreCollider.Contains(other)) 
+    //    {
+    //        return false;
+    //    }
+    //    return _ret;
+    //}
     GameObject _hittedObject;
     private void ApplyDamage()
     {

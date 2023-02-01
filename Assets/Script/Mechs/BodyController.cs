@@ -17,7 +17,7 @@ public class BodyController : MonoBehaviour
     [SerializeField] float _upperBodyRotationSpeed = 5;
     [SerializeField] float _chasisRotationSpeed = 5;
     
-    [SerializeField] SoundController _chasisSoundController;
+   // [SerializeField] SoundController _chasisSoundController;
     [SerializeField] SoundController _upperBodyRotationSoundController;
     public WeaponSystem weaponSystem;
 
@@ -79,7 +79,7 @@ public class BodyController : MonoBehaviour
         AnimationManager.Instance.SetAnimationBoolean(_animator, "isIdle", !state);
         if (state) 
         {
-            _chasisSoundController.TriggerSound();
+            //_chasisSoundController.TriggerSound();
         }
     }
 

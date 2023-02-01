@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class DamageController : MonoBehaviour
 {
     [SerializeField] DamageSystem _damageSystem;
@@ -29,6 +29,10 @@ public class DamageController : MonoBehaviour
     {
         foreach(GameObject g in _objectToDestory) 
         {
+            if (g.GetComponent<NavMeshObstacle>())
+            {
+                g.GetComponent<NavMeshObstacle>().enabled =false;
+            }
             if (g.GetComponent<MeshDestroy>()) 
             {
                 g.GetComponent<MeshDestroy>().DestroyMesh();
@@ -53,9 +57,9 @@ public class DamageController : MonoBehaviour
     private void OnBreak() 
     {
         ShowDestructionProps(_destructionProfile.DestroyedEffects);
-        ShowDestructionProps(_destructionProfile.DestroyedPrefabs);
         ExcludeObject();
         HideObject();
+        ShowDestructionProps(_destructionProfile.DestroyedPrefabs);
 
     }
 }

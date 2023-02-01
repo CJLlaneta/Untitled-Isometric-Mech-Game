@@ -19,3 +19,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab2c053562bbf4d4ca41e55a0ef0b451, type: 3}
   - {fileID: 8300000, guid: bc7e5778d79ed844daf19e1d843c8d10, type: 3}
   _isLoop: 0
+  _oneShotTrigger: 1
+  _triggerStart: 0
