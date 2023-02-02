@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fdc73f8cc0fc947afda323dc96bb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthValue: 2500
+  healthValue: 999999
 --- !u!1 &1604179236292642402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2336072852091715333, guid: 881a9d7820dec084b877c8b0bcc6389b,

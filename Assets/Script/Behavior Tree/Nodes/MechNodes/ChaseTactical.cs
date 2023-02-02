@@ -60,6 +60,11 @@ public class ChaseTactical : Node
         {
             engageDirection = SetRandomDestination();
         }
+        else if (Vector3.Distance(_navmeshAgent.transform.position,engageDirection) <= 2)
+        {
+            engageDirection = SetRandomDestination();
+            _cntCheck = 0;
+        }
         else if (_cntCheck >=3) 
         {
             engageDirection = SetRandomDestination();
