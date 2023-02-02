@@ -16,20 +16,30 @@ MonoBehaviour:
   - TagName: Untagged
     PassThrough: 0
     HasDamageSystem: 0
+    HitID: Caliber_Hit
     PhysicalProperty: 0
   - TagName: DestructableObject
     PassThrough: 0
     HasDamageSystem: 1
+    HitID: Caliber_Hit
     PhysicalProperty: 0
   - TagName: EnemyHuman
     PassThrough: 1
     HasDamageSystem: 1
+    HitID: 
     PhysicalProperty: 0
   - TagName: Armor
     PassThrough: 0
     HasDamageSystem: 1
+    HitID: Armor_Hit
     PhysicalProperty: 1
   - TagName: Player
     PassThrough: 1
     HasDamageSystem: 0
+    HitID: 
+    PhysicalProperty: 0
+  - TagName: Flesh
+    PassThrough: 0
+    HasDamageSystem: 1
+    HitID: Flesh_Hit
     PhysicalProperty: 0

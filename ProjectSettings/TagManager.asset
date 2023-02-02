@@ -10,6 +10,7 @@ TagManager:
   - CoverSystem
   - Armor
   - Ground
+  - Flesh
   layers:
   - Default
   - TransparentFX

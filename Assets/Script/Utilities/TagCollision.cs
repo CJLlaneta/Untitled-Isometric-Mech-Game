@@ -16,6 +16,7 @@ public class CollisionTagProperties
     public string TagName = "Default";
     public bool PassThrough = false;
     public bool HasDamageSystem = false;
+    public string HitID = "Default";
     public PhysicalProperties PhysicalProperty = PhysicalProperties.none;
 }
 

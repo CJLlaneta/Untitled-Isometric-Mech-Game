@@ -10,6 +10,7 @@ public class FootStepSoundPlayer : MonoBehaviour
     {
         if (other.tag == "Ground") 
         {
+            //Debug.Log("trigger");
             _soundController.TriggerSound();
         }
     }

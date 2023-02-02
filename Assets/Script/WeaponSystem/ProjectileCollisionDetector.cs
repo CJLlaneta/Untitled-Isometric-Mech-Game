@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.InputSystem.HID;
 
 public class ProjectileCollisionDetector : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class ProjectileCollisionDetector : MonoBehaviour
     [SerializeField] TagCollision _tagCollisions;
     [SerializeField] GameObject _ownerOfProjectile;
 
-    [SerializeField] string _hitID = "Caliber_Hit";
+    [SerializeField] string _hitIDDefault = "Caliber_Hit";
 
-    [SerializeField] string _metalID = "Armor_Hit";
+
 
 
     public void SetTheOwner(GameObject owner)
@@ -39,7 +40,7 @@ public class ProjectileCollisionDetector : MonoBehaviour
             else 
             {
                 //By Default Destroy this object
-                HitVFX(_hitID);
+                HitVFX(_hitIDDefault);
                 gameObject.SetActive(false);
             }
         }
@@ -60,14 +61,13 @@ public class ProjectileCollisionDetector : MonoBehaviour
         CollisionTagProperties colProperties = _tagCollisions.CollisionTag.Single(col => col.TagName == tag);
         if (!colProperties.PassThrough) 
         {
-            if (colProperties.PhysicalProperty == PhysicalProperties.metal)
+            if (colProperties.HitID != "")
             {
-                //Debug.Log(tag);
-                HitVFX(_metalID);
+                HitVFX(colProperties.HitID);
             }
             else 
             {
-                HitVFX(_hitID);
+                HitVFX(_hitIDDefault);
             }
             gameObject.SetActive(false);
         }
