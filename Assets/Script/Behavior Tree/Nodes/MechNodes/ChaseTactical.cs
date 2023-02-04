@@ -53,6 +53,7 @@ public class ChaseTactical : Node
         return _target.position + Random.onUnitSphere * _maximumDistance;
     }
     float _cntCheck = 0;
+    float _checkLimit = 3;
     public override NodeState Evaluate() 
     {
         _cntCheck += 1 * Time.deltaTime;
@@ -64,11 +65,13 @@ public class ChaseTactical : Node
         {
             engageDirection = SetRandomDestination();
             _cntCheck = 0;
+            _checkLimit = Random.Range(3, 6);
         }
-        else if (_cntCheck >=3) 
+        else if (_cntCheck >= _checkLimit) 
         {
             engageDirection = SetRandomDestination();
             _cntCheck = 0;
+            _checkLimit = Random.Range(3, 6);
         }
         _enemyAI.OnAim();
         _enemyAI.OnMove();

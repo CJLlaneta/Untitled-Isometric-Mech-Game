@@ -42,7 +42,11 @@ public class BodyController : MonoBehaviour
     {
         CockPitShutDown();
         IsMoving(false);
-        _animator.enabled = false;
+        if (_animator != null) 
+        {
+            _animator.enabled = false;
+        }
+
         Destroy(this);
     }
     private void CockPitShutDown()
@@ -59,6 +63,7 @@ public class BodyController : MonoBehaviour
     private void Initialized()
     {
         _currentMovementSpeed = _movementSpeed;
+     
         IsMoving(false);
     }
     public float MovementSpeed
@@ -76,10 +81,18 @@ public class BodyController : MonoBehaviour
     }
     public void IsMoving(bool state)
     {
-        AnimationManager.Instance.SetAnimationBoolean(_animator, "isIdle", !state);
+        if (_animator != null) 
+        {
+            AnimationManager.Instance.SetAnimationBoolean(_animator, "isIdle", !state);
+        }
+
         if (state) 
         {
-            //_chasisSoundController.TriggerSound();
+            if (_animator != null)
+            {
+                _animator.speed = _currentMovementSpeed / 5;
+            }
+                //_chasisSoundController.TriggerSound();
         }
     }
 

@@ -51,7 +51,7 @@ MonoBehaviour:
   _cockPit: {fileID: 8946110074727416116}
   _animator: {fileID: 1656821931280643386}
   _movementSpeed: 5
-  _movementSpeed_rotation: 4
+  _movementSpeed_rotation: 5
   _upperBodyRotationSpeed: 120
   _chasisRotationSpeed: 100
   _upperBodyRotationSoundController: {fileID: 1604179236292542657}

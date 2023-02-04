@@ -18,10 +18,15 @@ public class IsOnSightNode : Node
         RaycastHit hit;
         if (Physics.Raycast(_origin.position, _target.position - _origin.position, out hit)) 
         {
-            if (hit.collider.transform == _target) 
+            if (hit.collider.transform == _target ||
+                hit.collider.transform.root.transform == _target) 
             {
                 return NodeState.SUCCESS;
             }
+            //else 
+            //{
+            //    Debug.Log(hit.collider.transform.name);
+            //}
         }
         return NodeState.FAILURE;
     }

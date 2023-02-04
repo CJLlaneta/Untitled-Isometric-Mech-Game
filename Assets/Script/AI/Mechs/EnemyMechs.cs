@@ -20,6 +20,7 @@ public class EnemyMechs : MonoBehaviour,IAI
     [SerializeField] private float _shootingRange;
     [SerializeField] Transform _sightLocation;
     [SerializeField] GameObject _parentOwner;
+    [SerializeField] bool _turretMode = false;
     private Transform _bestCover;
     Vector3 _point = Vector3.zero;
     private bool _isEngage = false;
@@ -48,6 +49,11 @@ public class EnemyMechs : MonoBehaviour,IAI
     }
     private void Initialized() 
     {
+        if (_target == null) 
+        {
+            GameObject _t = GameObject.FindGameObjectWithTag("Player");
+            _target = _t.transform;
+        }
         _navmeshAgent.speed = _bodyController.MovementSpeed;
         _bodyController.SetTheWeaponOwner(_parentOwner);
         GetTheMapCover();
@@ -56,7 +62,7 @@ public class EnemyMechs : MonoBehaviour,IAI
 
     private void ConstructBrainNode() 
     {
-
+     
         IsEngageModeNode isInEngageNode = new IsEngageModeNode(this);
         Inverter isInEngageINode = new Inverter(isInEngageNode);
         IdleMechNode idleNode = new IdleMechNode(_navmeshAgent, this);
