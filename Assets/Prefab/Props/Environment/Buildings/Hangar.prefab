@@ -253,9 +253,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7760716721812059045}
     m_Modifications:
+    - target: {fileID: 1005198560565034, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131028503977028, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352178216049800, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1506274068195782, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Hangar_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506274068195782, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1666453800515872, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673962071415188, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757037622778840, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817888598328958, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837637132540310, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847614151418770, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934736831119878, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4755683041053510, guid: a9e9e135da71ccc4493b0c4ae14bd703, type: 3}
       propertyPath: m_RootOrder

@@ -231,10 +231,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: LightsModule.ratio
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: LightsModule.maxLights
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}

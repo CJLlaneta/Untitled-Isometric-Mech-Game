@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Barrier_Tall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1586103135033992, guid: b6d633052c71a654b966841e5b2a323a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4118116596943126, guid: b6d633052c71a654b966841e5b2a323a, type: 3}
       propertyPath: m_RootOrder
       value: 0

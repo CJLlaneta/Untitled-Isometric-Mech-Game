@@ -705,6 +705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198195352207415246, guid: ed511b7776af6174e9b1255c7a81e59c,
         type: 3}
+      propertyPath: LightsModule.maxLights
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198195352207415246, guid: ed511b7776af6174e9b1255c7a81e59c,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 8
       objectReference: {fileID: 0}
