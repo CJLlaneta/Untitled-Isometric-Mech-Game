@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: Vehicle_Destruction
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 8254318662455725946, guid: 5c51fb547201fab45b9b5e7bda59b655, type: 3}
+  _destroyedEffects:
+  - {fileID: 7890628232332199321, guid: e2192ac3b8c3d84488d4e68e3a114cec, type: 3}

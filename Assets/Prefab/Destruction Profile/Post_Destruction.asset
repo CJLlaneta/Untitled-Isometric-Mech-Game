@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: Post_Destruction
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 4873189709648499883, guid: 91b735edf66decc47856e1f2e4522085, type: 3}
+  _destroyedEffects:
+  - {fileID: 2538816129986491743, guid: 5949992faa0f5b04596ab2a433e2c8ea, type: 3}
