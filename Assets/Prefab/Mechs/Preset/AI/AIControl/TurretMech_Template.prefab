@@ -80,7 +80,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0
+  m_BaseOffset: 0.81
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8384512758042557827
@@ -105,6 +105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8384512758042557824}
     m_Modifications:
+    - target: {fileID: 328056831330169522, guid: 04861faa25288fa43aaa7b9626d4290d,
+        type: 3}
+      propertyPath: _upperBodyRotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 328056831330169532, guid: 04861faa25288fa43aaa7b9626d4290d,
         type: 3}
       propertyPath: m_RootOrder

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: SuperBig_Building
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 6543340338520240914, guid: 1b1c39a0777af474a82b56e30ed2917c, type: 3}
+  - {fileID: 837890794189085002, guid: e42bc804a166dbb409a58ace28c59f81, type: 3}
+  _destroyedEffects:
+  - {fileID: 4621243671261955072, guid: ebeca6884aa32374db09c4107aa14f51, type: 3}
