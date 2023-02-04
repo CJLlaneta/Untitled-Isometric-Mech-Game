@@ -18,7 +18,7 @@ public class DamageController : MonoBehaviour
     {
         float randomAngle = Random.Range(0f, 360f);
         Quaternion randomRotation = Quaternion.Euler(0f, randomAngle, 0f);
-        GameObject _prop = Instantiate(props[Random.Range(0, props.Count)], transform.position, randomRotation);
+        GameObject _prop = Instantiate(props[Random.Range(0, props.Count)], transform.position, Quaternion.identity);
         Vector3 _v = _prop.transform.position;
         _v.x += _damageRespawnOffSet.x;
         _v.y += _damageRespawnOffSet.y;

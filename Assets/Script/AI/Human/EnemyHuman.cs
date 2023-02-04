@@ -39,6 +39,11 @@ public class EnemyHuman : MonoBehaviour,IAI
     }
     private void Initialized() 
     {
+        if (_target == null)
+        {
+            GameObject _t = GameObject.FindGameObjectWithTag("Player");
+            _target = _t.transform;
+        }
         GetTheMapCover();
         _navmeshAgent.speed = _movespeed;
         ConstructAITree();
@@ -62,6 +67,7 @@ public class EnemyHuman : MonoBehaviour,IAI
         RangeNode chasingRangeNode = new RangeNode(_chaseRange, _target, transform);
         RangeNode shootingRangeNode = new RangeNode(_shootingRange, _target, transform);
         ShootNode shootNode = new ShootNode(_navmeshAgent, this, _target);
+        RunAwayNode _runAwayNode = new RunAwayNode(_navmeshAgent, _target, _chaseRange, this);
 
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
@@ -70,8 +76,9 @@ public class EnemyHuman : MonoBehaviour,IAI
         Sequence goToCoverSequence = new Sequence(new List<Node> { coverAvailableNode, goToCoverNode });
         Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
         Selector tryToCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
-        Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
-        
+        //Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, tryToCoverSelector });
+        Sequence reloadAndCoverSequence = new Sequence(new List<Node> { reloadNode, _runAwayNode });
+        //reloadAndCoverSequence,
         _topNode = new Selector(new List<Node> { reloadAndCoverSequence, shootSequence, chaseSequence, });
     }
     public Transform GetTheBestCover() 
