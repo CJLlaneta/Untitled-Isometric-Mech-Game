@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bcc072277c408479c38fa253d2e59c, type: 3}
+  m_Name: MidBigMed_Building
+  m_EditorClassIdentifier: 
+  _destroyedPrefabs:
+  - {fileID: 6543340338520240914, guid: afb41119118c1e240b08339960633796, type: 3}
+  _destroyedEffects:
+  - {fileID: 4621243671261955072, guid: f3e52721fa4dd214d9390d55e4b8af44, type: 3}

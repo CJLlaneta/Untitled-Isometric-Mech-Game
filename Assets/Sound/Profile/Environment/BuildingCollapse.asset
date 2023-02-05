@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sfx:
   - {fileID: 8300000, guid: 7974b5d31398f10408034dd3a7b36f10, type: 3}
+  - {fileID: 8300000, guid: b406be2c5e1515c45bf734e7d9ee2243, type: 3}
+  - {fileID: 8300000, guid: eb6f71c80a136344d88aa4a436bd5dfd, type: 3}
+  - {fileID: 8300000, guid: 208da90e2dcdb1942a8b5a9dd3229154, type: 3}
+  - {fileID: 8300000, guid: 524082d055deacd41b06e8b385f7b583, type: 3}
   _isLoop: 0
   _oneShotTrigger: 0
   _triggerStart: 1
